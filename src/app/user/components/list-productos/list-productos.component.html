@@ -1,0 +1,22 @@
+<div class="list-productos">
+    <ul>
+        @for (item of productos; track $index) {
+            <p>{{item.categoria}}-{{item.producto}}-{{item.marca}}</p>
+            <p>{{item.peso}}-{{item.precio}}-{{item.stock}}</p>
+            <p>{{item.descripcion}}</p>
+            <img [src]="item.imagen" alt="{{item.producto}}">
+        }
+    </ul>
+</div>
+
+<!-- <div class="productos-container">
+    <div class="producto">
+        @for (item of productos; track $index) {
+            <h2>{{ item.producto }}</h2>
+            <img [src]="item.imagen" alt="{{ item.producto }}" />
+            <p>{{ item.descripcion }}</p>
+            <p>Precio: ${{ item.precio }}</p>
+            <p>Stock: {{ item.stock }}</p>  
+        }
+    </div>
+  </div> -->

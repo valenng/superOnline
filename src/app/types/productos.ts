@@ -7,6 +7,7 @@ export interface Productos {
     precio: number,
     stock: number,
     imagen: string,
-    descripcion?: string
+    descripcion?: string,
+    cantidad?: number,
 }
 // http://localhost:3000/productos

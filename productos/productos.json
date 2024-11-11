@@ -41,36 +41,6 @@
             "stock": 15,
             "descripcion": "con semillas",
             "imagen":"assets/images/panificados/panacity-con_semillas.jpg"
-          },
-          {
-            "id": "aerd",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "panacity",
-            "peso": 410,
-            "precio": 1500,
-            "stock": 15,
-            "descripcion": "con semillas"
-          },
-          {
-            "id": "aezd",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "a",
-            "peso": 410,
-            "precio": 1500,
-            "stock": 15,
-            "descripcion": "con semillas"
-          },
-          {
-            "id": "berd",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "b",
-            "peso": 410,
-            "precio": 1500,
-            "stock": 15,
-            "descripcion": "con semillas"
           }
     ]
 }

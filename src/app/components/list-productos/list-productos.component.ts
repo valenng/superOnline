@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Productos } from '../../../types/productos';
-import { SuperService } from '../../../service/super.service';
+import { Productos } from '../../types/productos';
+import { SuperService } from '../../service/super.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -17,12 +17,14 @@ export class ListProductosComponent implements OnInit{
 
   productos: Productos[] = [];
   productosFiltrados: Productos[] = [] ; 
-
+  
   ngOnInit(): void {
-    const categoria = this.route.snapshot.paramMap.get('categoria') || ''; //Si no recibe una cat válida, no va a probar hacer la solicitud
-    this.superService.getProductosPorCategoria(categoria).subscribe((productos) => {
-      this.productos = productos;
-    })
+    this.route.paramMap.subscribe(params => {
+      const categoria = params.get('categoria') || ''; // Si no recibe una categoría válida, no hace la solicitud
+      this.superService.getProductosPorCategoria(categoria).subscribe((productos) => {
+        this.productos = productos;
+      });
+    });
   }
 
   listarProductos(): void{

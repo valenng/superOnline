@@ -1,76 +1,13 @@
 <div class="home-user">
-    <header class="header">
-        <input type="checkbox" class="header-checkbox" id="open-menu">
-        <label for="open-menu" class="header-open_nav_button" role="button">=</label>
-
-        <div class="menu-header-logo">
-            <img class="header-logo" src="assets/images/logoSuper.png" >
-        </div>
-        <h1 class="header-text">superOnline</h1>
-    
-        <input type="text" class="header-busqueda" id="busqueda" placeholder="Buscar productos..">
-
-        <nav class="header-nav">
-            <ul class="header-nav_list">
-                <li class="header-nav_item"> <a [routerLink]="['/user/productos']" >Productos</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    
-    <div class="categorias-contenedor">
-        <div class="categorias-list">
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'congelados']" class="cat-congelados" src="assets/images/congelados.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'congelados']">Congelados</a>
-            </div>
-
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'panificados']" class="cat-panificados" src="assets/images/panificados.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'panificados']">Panificados</a>
-            </div>
-
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'limpieza']" class="cat-limpieza" src="assets/images/limpieza.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'limpieza']">Limpieza</a>
-            </div>
-            
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'bebidasS_A']" class="cat-bebidas_s-a" src="assets/images/bebidass-a.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'bebidasS_A']">Bebidas S/A</a>
-            </div>
-            
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'lacteosyfrescos']" class="cat-lacteosyfrescos" src="assets/images/lacteosyfrescos.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'lacteosyfrescos']">Lacteos y frescos</a>
-            </div>
-
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'verduleria']" class="cat-verduleria" src="assets/images/verduleria.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'verduleria']">Verdulería</a>
-            </div>
-
-            <div class="categoria">
-                <img [routerLink]="['/user/productos', 'almacen']" class="cat-almacen" src="assets/images/almacen.png" >
-                <a class="categoria-nombre" [routerLink]="['/user/productos', 'almacen']">Almacen</a>
-            </div>
-
-        </div> <!--fin div=categorias-list-->
-    </div> <!--fin div=categorias-contenedor-->
-
-
     <div class="home-productos">
         <app-list-productos></app-list-productos>
     </div>
-
+    <!-- VER EN QUÉ ORDEN PONER ESTOS DOS COMPONENTES PARA MOSTRARLOS BIEN -->
+    <div class="navbar-gen">
+        <app-navbar></app-navbar>
+    </div>
 
 </div><!--fin div=home-user-->
-
-
-
-
-
-
 
 
     <!-- <button (click)="('Admin')">Administrador</button> -->

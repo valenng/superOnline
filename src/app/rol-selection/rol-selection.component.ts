@@ -17,7 +17,7 @@ export class RolSelectionComponent {
   seleccionarRol(rol: 'User' | 'Admin'): string{
     this.rolService.setRol(rol);
     if(rol == 'User'){
-      this.router.navigate(['/user/home']);
+      this.router.navigate(['/user']);
       return 'User';
     }else{
       this.router.navigate(['/admin']);
@@ -25,3 +25,4 @@ export class RolSelectionComponent {
     }
   }
 }
+

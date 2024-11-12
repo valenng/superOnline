@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Productos } from '../../../types/productos';
 import { SuperService } from '../../../service/super.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list-productos',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './list-productos.component.html',
   styleUrl: './list-productos.component.css'
 })

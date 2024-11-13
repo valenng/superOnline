@@ -12,19 +12,24 @@ import { HomeUserComponent } from './home/home-user/home-user.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { ListProductosComponent } from '../components/list-productos/list-productos.component';
 import { DetailsProductosComponent } from '../components/details-productos/details-productos.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 const routes: Routes = [
-  {path:'home', component: HomeUserComponent},
+  {path:'', component: HomeUserComponent},
   {
-    path: 'productos',
-    component: NavigationComponent,
+    path: 'productos/:categoria', component: ListProductosComponent,
     children: [
       { path: 'congelados', component: ListProductosComponent },
+      { path: 'panificados', component: ListProductosComponent },
+      { path: 'limpieza', component: ListProductosComponent },
+      { path: 'bebidasS_A', component: ListProductosComponent },
+      { path: 'lacteosyfrescos', component: ListProductosComponent },
+      { path: 'verduleria', component: ListProductosComponent },
+      { path: 'almacen', component: ListProductosComponent },
+      
       { path: 'detalles/:id', component: DetailsProductosComponent },
-      // Agrega otras categorías aquí
     ]
   }
 ];

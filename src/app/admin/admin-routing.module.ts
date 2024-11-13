@@ -16,13 +16,17 @@ import { RolSelectionComponent } from '../rol-selection/rol-selection.component'
 import { ListProductosComponent } from '../components/list-productos/list-productos.component'; // Este es un ejemplo
 
 const routes: Routes = [
-  // {path:'home', component: HomeAdminComponent},
+  {path:'home', component: HomeAdminComponent},
   {
-    path: 'productos',
-    component: HomeAdminComponent,
+    path: 'productos/:categoria', component: ListProductosComponent,
     children: [
       { path: 'congelados', component: ListProductosComponent },
-      // Define aquí las rutas específicas de categorías para el administrador
+      { path: 'panificados', component: ListProductosComponent },
+      { path: 'limpieza', component: ListProductosComponent },
+      { path: 'bebidasS_A', component: ListProductosComponent },
+      { path: 'lacteosyfrescos', component: ListProductosComponent },
+      { path: 'verduleria', component: ListProductosComponent },
+      { path: 'almacen', component: ListProductosComponent },
     ]
   }
 ];

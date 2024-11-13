@@ -12,12 +12,15 @@ import { RolService } from '../rol-selection/service/rol.service';
 })
 export class NavbarComponent{
 
-  rolActual: 'User' | 'Admin' | null = null;
+  rolActual: string | null = null;
 
   constructor(private rolService: RolService){}
 
-  ngOnInit(): void {
-    this.rolActual = this.rolService.getRol() ; 
-    console.log(this.rolActual);
+  ngOnInit() {
+    this.rolService.rol$.subscribe(rol => {
+      this.rolActual = rol;
+      console.log(this.rolActual);
+    });
   }
+
 }

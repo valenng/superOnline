@@ -16,21 +16,27 @@ export class ListProductosComponent implements OnInit{
   constructor(private superService: SuperService, private route: ActivatedRoute){}
 
   productos: Productos[] = [];
-  productosFiltrados: Productos[] = [] ; 
-  
+
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const categoria = params.get('categoria') || ''; // Si no recibe una categoría válida, no hace la solicitud
-      this.superService.getProductosPorCategoria(categoria).subscribe((productos) => {
-        this.productos = productos;
-      });
+      const categoria = params.get('categoria');
+      console.log('Categoría recibida:', categoria); // Verifica qué categoría trae
+  
+      if (categoria) {
+        this.superService.getProductosPorCategoria(categoria).subscribe(productos => {
+          this.productos = productos;
+          console.log('Productos filtrados:', this.productos); // Verifica que reciba productos
+        });
+      } else {
+        this.superService.getProductos().subscribe(data => {
+          this.productos = data;
+        });
+      }
     });
   }
 
-  listarProductos(): void{
-    this.superService.getProductos().subscribe(data => {
-      this.productos = data;
-    })
-  }
+  
+
 
 }

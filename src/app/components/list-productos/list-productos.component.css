@@ -15,10 +15,12 @@
   } */
 
   .product-list{
+    /*background-color: #a7bdf3ce; Fondo solo para lista de productos*/
     display: grid;
-    grid-template-columns: repeat(4, 250px);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
     justify-content: center;
+    padding-top: 10vh;
   }
   
   .product-card {
@@ -30,8 +32,14 @@
     padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    z-index: 100;
+    /*z-index: 1000; Si activo esto se agrandan los productos con el mouse, porque quedaria superpuesto*/
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
+
+  .product-card:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
   
   .product-image img {
     max-width: 100%;
@@ -41,6 +49,7 @@
   .product-info h3 {
     font-size: 16px;
     margin: 8px 0;
+    color: #333;
   }
   
   .product-price {

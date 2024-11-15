@@ -16,25 +16,56 @@
 
   .product-list{
     /*background-color: #a7bdf3ce; Fondo solo para lista de productos*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    padding-top: 10vh;
+    gap: 16px;
+    padding-top: 25vh;
   }
-  
+   
   .product-card {
-    margin-top: 200px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    width: 200px;
+    background-color: white;
+    width: 180px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
     text-align: center;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    /*z-index: 1000; Si activo esto se agrandan los productos con el mouse, porque quedaria superpuesto*/
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+    z-index: 1000; /*Le puse el z-index para que quede por encima asi me funcionan los botones de los productos */
+}
+
+.cantidad-seleccion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.cantidad-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cantidad-input {
+    width: 40px;
+    text-align: center;
+}
+
+.agregar-carrito-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 
   .product-card:hover {
     transform: scale(1.05); /* Efecto de escala al pasar el ratón */
@@ -43,13 +74,16 @@
   
   .product-image img {
     max-width: 100%;
+    height: auto;
     border-radius: 4px;
+    margin-bottom: 5px;
   }
   
-  .product-info h3 {
+  .product-info {
     font-size: 16px;
     margin: 8px 0;
     color: #333;
+    padding: 10px 0;
   }
   
   .product-price {
@@ -67,3 +101,47 @@
     font-weight: bold;
   }
   
+  .acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Espacio entre el contador y el botón */
+}
+
+.cantidad-seleccion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cantidad-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cantidad-input {
+    width: 40px;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield; /*Puse esto para ocultar las flechas dentro del form para incremendar o decrementar la cant*/
+}
+
+.cantidad-input::-webkit-outer-spin-button,
+.cantidad-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Oculta las flechas en Chrome, Safari y Edge */
+    margin: 0;
+}
+
+.agregar-carrito-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}

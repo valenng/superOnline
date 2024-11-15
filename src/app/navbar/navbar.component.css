@@ -8,6 +8,7 @@
 
 
 .header{
+    position: relative;
     background-color: #086dae;
     display: flex;
     justify-content: space-between;
@@ -18,6 +19,8 @@
     width: 100vw;
     padding: 10px 20px;
     box-sizing: border-box;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .header-open_nav_button{
@@ -27,6 +30,7 @@
     position: absolute;
     right: 25px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .header-logo{
@@ -144,4 +148,20 @@
     font-weight: bold; /* Puedes ponerlo en negrita si prefieres */
     text-transform: uppercase;
     text-decoration: none;
+}
+
+/*----------------------------Carrito-----------------------------------*/
+.carrito-menu {
+    position: absolute;
+    top: 60px; /* Ajusta este valor si es necesario para que quede justo debajo del icono del carrito */
+    right: 20px; /* Ubícalo en la esquina derecha */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 300px; /* Ancho fijo */
+    max-height: 400px; /* Limita la altura */
+    overflow-y: auto; /* Desplazamiento si el contenido es largo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Asegura que esté sobre la barra de navegación */
+    border-radius: 5px;
 }

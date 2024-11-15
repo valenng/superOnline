@@ -23,22 +23,26 @@ export class SuperService {
     return this.http.get<Productos[]>(this.baseUrl);
   }
   
-  addCarrito(producto: Productos){
+  agregarAlCarrito(producto: Productos, cantidad: number){
     const carrito = this.cart.value;
     const item = carrito.findIndex(item => item.id === producto.id)
 
     if(item > -1){
-      carrito[item].cantidad! += 1; //Aumento si el producto ya estaba
+      carrito[item].cantidad! += cantidad; //Aumento si el producto ya estaba
     }else{
-      carrito.push({...producto, cantidad: 1});
+      carrito.push({...producto, cantidad});
     }
 
     this.cart.next(carrito); // Actualizo con nuevo estado
   }
 
-  removeFromCart(productoId: string){
+  borrarProducto(productoId: string){
     const carrito = this.cart.value.filter(item => item.id!= productoId);
     this.cart.next(carrito); // Actualizo despues de eliminar
+  }
+
+  actualizarCarrito(carritoActualizado: Productos[]): void {
+    this.cart.next(carritoActualizado);
   }
 
   vaciarCarrito(){

@@ -6,7 +6,7 @@ import { NavbarComponent } from "../../../navbar/navbar.component";
 @Component({
   selector: 'app-home-user',
   standalone: true,
-  imports: [ListProductosComponent, NavbarComponent],
+  imports: [ListProductosComponent],
   templateUrl: './home-user.component.html',
   styleUrls: ['./home-user.component.css']
 })

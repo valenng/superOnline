@@ -3,17 +3,18 @@ import { Productos } from '../../types/productos';
 import { SuperService } from '../../service/super.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-productos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './list-productos.component.html',
   styleUrl: './list-productos.component.css'
 })
 export class ListProductosComponent implements OnInit{
   
-  constructor(private superService: SuperService, private route: ActivatedRoute){}
+  constructor(private servicio: SuperService, private route: ActivatedRoute){}
 
   productos: Productos[] = [];
 
@@ -21,22 +22,32 @@ export class ListProductosComponent implements OnInit{
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const categoria = params.get('categoria');
-      console.log('Categoría recibida:', categoria); // Verifica qué categoría trae
   
       if (categoria) {
-        this.superService.getProductosPorCategoria(categoria).subscribe(productos => {
-          this.productos = productos;
-          console.log('Productos filtrados:', this.productos); // Verifica que reciba productos
+        this.servicio.getProductosPorCategoria(categoria).subscribe(productos => {
+          this.productos = productos.map(producto => ({ ...producto, cantidad: 1 })); // Inicializa la cantidad en 1
         });
       } else {
-        this.superService.getProductos().subscribe(data => {
-          this.productos = data;
+        this.servicio.getProductos().subscribe(data => {
+          this.productos = data.map(producto => ({ ...producto, cantidad: 1 })); // Inicializa la cantidad en 1
         });
       }
     });
   }
 
-  
+  incrementarCantidad(item: Productos){
+    item.cantidad!++;
+  }
+
+  decrementarCantidad(item: Productos){
+    if(item.cantidad! > 1){
+      item.cantidad!--;
+    }
+  }
+
+  agregarAlCarrito(item: Productos, cantidad: number){
+    this.servicio.agregarAlCarrito(item, cantidad);
+  }
 
 
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RolSelectionComponent } from "./rol-selection/rol-selection.component";
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "./navbar/navbar.component";
 

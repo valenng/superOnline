@@ -1,17 +1,30 @@
 <div class="product-list">
-    <div class="product-card" *ngFor="let item of productos">
+  <div class="product-card" *ngFor="let item of productos">
       <div class="product-image">
-        <img [src]="item.imagen" alt="{{ item.producto }}" />
+          <img [src]="item.imagen" alt="{{ item.producto }}" />
       </div>
       <div class="product-info">
-        <h3>{{ item.producto }} - {{ item.marca }}</h3>
-        <p class="product-description">{{ item.descripcion }}</p>
-        <p class="product-price">
-          <span class="new-price">{{ item.precio | currency }}</span>
-        </p>
+          <h3>{{ item.producto }} - {{ item.marca }}</h3>
+          <p class="product-description">{{ item.descripcion }}</p>
+          <p class="product-price">
+              <span class="new-price">{{ item.precio | currency }}</span>
+          </p>
+
+          <div class ="acciones">
+          <!-- Selector de cantidad -->
+            <div class="cantidad-seleccion">
+                <button (click)="decrementarCantidad(item)" class="cantidad-btn">-</button>
+                <input type="number" [(ngModel)]="item.cantidad" min="1" class="cantidad-input">
+                <button (click)="incrementarCantidad(item)" class="cantidad-btn">+</button>
+            </div>
+
+          <!-- Botón para agregar al carrito -->
+            <button (click)="agregarAlCarrito(item, item.cantidad || 1)" class="agregar-carrito-btn">Agregar al Carrito</button>
+          </div>
       </div>
     </div>
-  </div>
+</div>
+
   
   
 

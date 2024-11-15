@@ -1,22 +1,21 @@
 <div class="navbar-contenedor">
     <header class="header">
         <input type="checkbox" class="header-checkbox" id="open-menu">
-        <label for="open-menu" class="header-open_nav_button" role="button">=</label>
-    
+        
+        <label for="open-menu" class="header-open_nav_button" role="button">
+            <a [routerLink]="['/user/carrito']">
+            <span class="material-icons">shopping_cart</span>
+            </a>
+        </label>
+
         <div class="menu-header-logo">
             <img class="header-logo" src="assets/images/logoSuper.png" >
         </div>
         <a class="header-text" [routerLink]="['/', rolActual?.toLowerCase()]">superOnline</a>
     
         <input type="text" class="header-busqueda" id="busqueda" placeholder="Buscar productos..">
-    
-        <nav class="header-nav">
-            <ul class="header-nav_list">
-                <li class="header-nav_item"> <a [routerLink]="['/user/productos']" >Productos</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+
+    </header> 
     
     <div class="categorias-contenedor">
         <div class="categorias-list">
@@ -58,7 +57,4 @@
     
         </div> <!--fin div=categorias-list-->
     </div> <!--fin div=categorias-contenedor-->
-
-    
-    
 </div> <!-- fin div-contenedor -->

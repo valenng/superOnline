@@ -1,7 +1,12 @@
 <div class="home-admin">
-    
-    <div class="admin-text">
-        <h1>Modo Administrador</h1>
+    <div class="modo-administrador">
+      <h1>Modo administrador</h1>
     </div>
+    
+    <div class="contenido">
+      <!-- <p>{{this.isAdmin}}</p> -->
+      <p *ngIf=this.isAdmin >{{this.mensaje}}</p>
+      
 
-</div><!--fin div=home-user-->
+    </div>
+  </div>

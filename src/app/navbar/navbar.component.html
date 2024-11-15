@@ -13,7 +13,7 @@
         </div>
         <a class="header-text" [routerLink]="['/', rolActual?.toLowerCase()]">superOnline</a>
     
-        <input type="text" class="header-busqueda" id="busqueda" placeholder="Buscar productos..">
+        <input type="search" class="header-busqueda" id="busqueda" placeholder="Buscar productos..">
 
     </header> 
     
@@ -57,4 +57,6 @@
     
         </div> <!--fin div=categorias-list-->
     </div> <!--fin div=categorias-contenedor-->
+    <app-home-admin *ngIf="rolActual?.toLowerCase() === 'admin'"></app-home-admin>
+    <!-- <app-home-admin></app-home-admin> -->
 </div> <!-- fin div-contenedor -->

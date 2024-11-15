@@ -1,0 +1,25 @@
+.home-admin {
+  position: relative;  /* Esto asegura que los elementos dentro de este componente se posicionen de forma relativa */
+}
+
+.modo-administrador {
+  position: absolute;  /* Lo coloca sobre otros contenidos */
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;  /* Centra el texto horizontalmente */
+  background-color: rgba(0, 0, 0, 0.7);  /* Fondo oscuro para que el texto resalte */
+  color: white;  /* Texto blanco */
+  z-index: 10;  /* Se asegura de que esté por encima de los demás contenidos, pero debajo del navbar */
+  padding: 10px 0;  /* Espaciado para que el texto no quede pegado al borde */
+}
+
+.modo-administrador h1 {
+  margin: 0;  /* Elimina el margen por defecto del h1 */
+}
+
+.contenido{
+    margin-top: auto;
+    text-align: center;
+    background-color: azure;
+}

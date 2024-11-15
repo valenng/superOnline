@@ -52,4 +52,5 @@ export class SuperService {
   getCarrito(): Observable<Productos[]>{
     return this.cart$; // Carrito como observable
   }
+
 }

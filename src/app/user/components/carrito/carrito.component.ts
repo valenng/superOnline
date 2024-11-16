@@ -23,7 +23,7 @@ export class CarritoComponent implements OnInit {
 
     getTotal(): number {
         // Calcula el total sumando precio * cantidad de cada producto
-        return this.items.reduce((total, item) => total + (item.precio * (item.cantidad || 1)), 0);
+        return this.items.reduce((total, item) => total + ((item.precio || 0) * (item.cantidad || 1)), 0); //(item.precio || 0) Fijate martin
     }
 
     incrementarCantidad(item: Productos): void {

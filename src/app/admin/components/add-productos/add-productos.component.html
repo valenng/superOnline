@@ -1,0 +1,137 @@
+<div class="form-add-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-etiqueta">
+            <label for="categoria">Categoría</label>
+            <div class="form-select">
+
+                <select formControlName="categoria" (change)="onCategoriaChange()">
+                    <option value="" selected="selected">Selecciona una categoría</option>
+                    <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+                </select>
+
+                <div class="form-error">
+                    @if(form.controls['categoria'].touched && form.controls['categoria'].getError('required')){
+                        <span>Debe seleccionar una opción.</span>
+                     }
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (CATEGORÍA)-->
+
+        
+        <div class="form-etiqueta">
+            <label for="producto">Producto</label>
+            <div class="form-select">
+                
+                <select formControlName="producto" (change)="onProductoChange()">
+                    <option value="" selected="selected">Selecciona un producto</option>
+                    <option *ngFor="let producto of productos" [value]="producto">{{ producto }}</option>
+                </select>
+
+                <div class="form-error">
+                    @if(form.controls['producto'].getError('required') && form.controls['producto'].touched){
+                        <span>Debe ingresar el nombre del producto</span>
+                     }
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (PRODUCTO)-->
+
+
+        <div class="form-etiqueta">
+            <label for="marca">Marca</label>
+            <div class="form-select">
+                
+                <select formControlName="marca">
+                    <option value="" selected="selected">Selecciona una marca</option>
+                    <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
+                </select>
+
+                <div class="form-error">
+                    @if(form.controls['marca'].getError('required') && form.controls['marca'].touched){
+                        <span>Debe ingresar la marca del producto</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (MARCA)-->
+
+
+        <div class="form-etiqueta">
+            <label for="peso">Peso</label>
+            <div class="form-input">
+                <input type="number" id="peso" formControlName="peso" placeholder="Gramos / Litros"> 
+
+                <div class="form-error">
+                    @if(form.controls['peso'].getError('min') && form.controls['peso'].getError('required')  || form.controls['peso'].touched){
+                        <span>Debe ingresar el peso del producto</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (PESO)-->
+
+
+        <div class="form-etiqueta">
+            <label for="precio">Precio</label>
+            <div class="form-input">
+                <input type="number" id="precio" formControlName="precio">
+
+                <div class="form-error">
+                    @if(form.controls['precio'].getError('min') && form.controls['precio'].getError('required')  || form.controls['precio'].touched){
+                        <span>Debe ingresar un precio válido.</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (PRECIO)-->
+    
+
+        <div class="form-etiqueta">
+            <label for="stock">Stock</label>
+            <div class="form-input">
+                <input type="number" id="stock" formControlName="stock">
+
+                <div class="form-error">
+                    @if(form.controls['stock'].getError('min') && form.controls['stock'].getError('required') || form.controls['stock'].touched){
+                        <span>Debe ingresar el stock del producto</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (STOCK)-->
+
+
+        <!-- <div class="form-etiqueta"> revisar cómo hacer para cargar la foto
+            <label for="imagen">Imagen</label>
+            <div class="form-input">
+                <input type="image" id="imagen" formControlName="imagen">
+
+                <div class="form-error">
+                    @if(form.controls['imagen'].getError('required')  && form.controls['imagen'].touched){
+                        <span>Debe ingresar la imagen del producto</span>
+                    }    
+                </div>
+
+            </div>
+        </div>Fin form-etiqueta (IMAGEN) -->
+
+
+        <div class="form-etiqueta">
+            <label for="descripcion">Descripción</label>
+            <div class="form-input">
+                <input type="text" id="descripcion" formControlName="descripcion" placeholder="Opcional">
+
+                <div class="form-error">
+                    @if(form.controls['descripcion'].getError('maxLength')){
+                        <span>Alcanzó el máximo de carácteres.</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (DESCRIPCIÓN)-->
+        
+        <button type="submit"[disabled]="form.invalid" class="button-submit">Enviar</button>
+    </form>
+</div>

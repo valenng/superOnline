@@ -1,46 +1,57 @@
 {
-    "productos" : [
-        {
-            "id": "aaad",
-            "categoria": "almacen",
-            "producto": "cafe",
-            "marca": "la virginia",
-            "peso": 170,
-            "precio": 5200,
-            "stock": 20
-          }, 
-          {
-            "id": "asad",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "panacity",
-            "peso": 410,
-            "precio": 1800,
-            "stock": 15,
-            "descripcion": "salvado",
-            "imagen": "assets/images/panificados/panacity-salvado.jpg"
-          },
-          {
-            "id": "aerd",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "panacity",
-            "peso": 410,
-            "precio": 1500,
-            "stock": 20,
-            "descripcion": "avena y cereales",
-            "imagen":"assets/images/panificados/panacity-avena_y_cereales.jpg"
-          },
-          {
-            "id": "aerd",
-            "categoria": "panificados",
-            "producto": "pan lactal",
-            "marca": "panacity",
-            "peso": 410,
-            "precio": 1500,
-            "stock": 15,
-            "descripcion": "con semillas",
-            "imagen":"assets/images/panificados/panacity-con_semillas.jpg"
-          }
-    ]
+  "productos": [
+    {
+      "id": "aaad",
+      "categoria": "almacen",
+      "producto": "cafe",
+      "marca": "la virginia",
+      "peso": 170,
+      "precio": 5200,
+      "stock": 20
+    },
+    {
+      "id": "asad",
+      "categoria": "panificados",
+      "producto": "pan lactal",
+      "marca": "panacity",
+      "peso": 410,
+      "precio": 1800,
+      "stock": 15,
+      "descripcion": "salvado",
+      "imagen": "assets/images/panificados/panacity-salvado.jpg"
+    },
+    {
+      "id": "aerd",
+      "categoria": "panificados",
+      "producto": "pan lactal",
+      "marca": "panacity",
+      "peso": 410,
+      "precio": 1500,
+      "stock": 20,
+      "descripcion": "avena y cereales",
+      "imagen": "assets/images/panificados/panacity-avena_y_cereales.jpg"
+    },
+    {
+      "id": "aerd",
+      "categoria": "panificados",
+      "producto": "pan lactal",
+      "marca": "panacity",
+      "peso": 410,
+      "precio": 1500,
+      "stock": 15,
+      "descripcion": "con semillas",
+      "imagen": "assets/images/panificados/panacity-con_semillas.jpg"
+    },
+    {
+      "id": "dace",
+      "categoria": "Bebidas S/A",
+      "producto": "Jugos",
+      "marca": "Baggio",
+      "peso": 3,
+      "precio": 2000,
+      "stock": 10,
+      "imagen": "",
+      "descripcion": ""
+    }
+  ]
 }

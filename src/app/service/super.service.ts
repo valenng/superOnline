@@ -53,4 +53,11 @@ export class SuperService {
     return this.cart$; // Carrito como observable
   }
 
+  // AGREGAR NUEVO PRODUCTO AL SISTEMA
+  addProducto(producto: Productos): Observable<Productos>{
+    return this.http.post<Productos>(this.baseUrl, producto);
+  }
+
+
+
 }

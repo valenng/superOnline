@@ -57,6 +57,12 @@
     
         </div> <!--fin div=categorias-list-->
     </div> <!--fin div=categorias-contenedor-->
+
     <app-home-admin *ngIf="rolActual?.toLowerCase() === 'admin'"></app-home-admin>
-    <!-- <app-home-admin></app-home-admin> -->
+    
+    <!-- <app-add-productos *ngIf="this.isAddProductosRoute"></app-add-productos> -->
+    <!-- <div *ngIf="this.isAddProductosRoute" class="admin-ruta-addProductos">
+      <app-add-productos></app-add-productos>
+    </div> -->
+
 </div> <!-- fin div-contenedor -->

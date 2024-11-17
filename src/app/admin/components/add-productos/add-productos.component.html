@@ -64,9 +64,12 @@
                 <input type="number" id="peso" formControlName="peso" placeholder="Gramos / Litros"> 
 
                 <div class="form-error">
-                    @if(form.controls['peso'].getError('min') && form.controls['peso'].getError('required')  || form.controls['peso'].touched){
+                    @if(form.controls['peso'].getError('min')){
+                        <span>Debe ingresar un peso válido</span>
+                    }
+                    @if(form.controls['peso'].getError('required') && form.controls['peso'].touched){
                         <span>Debe ingresar el peso del producto</span>
-                    }    
+                    }
                 </div>
 
             </div>
@@ -79,9 +82,12 @@
                 <input type="number" id="precio" formControlName="precio">
 
                 <div class="form-error">
-                    @if(form.controls['precio'].getError('min') && form.controls['precio'].getError('required')  || form.controls['precio'].touched){
+                    @if(form.controls['precio'].getError('min')){
                         <span>Debe ingresar un precio válido.</span>
-                    }    
+                    }
+                    @if(form.controls['precio'].getError('required')  && form.controls['precio'].touched){
+                        <span>Debe ingresar el precio</span>
+                    }
                 </div>
 
             </div>
@@ -94,9 +100,12 @@
                 <input type="number" id="stock" formControlName="stock">
 
                 <div class="form-error">
-                    @if(form.controls['stock'].getError('min') && form.controls['stock'].getError('required') || form.controls['stock'].touched){
+                    @if(form.controls['stock'].getError('min')){
+                        <span>Debe ingresar un stock válido</span>
+                    }
+                    @if(form.controls['stock'].getError('required') && form.controls['stock'].touched){
                         <span>Debe ingresar el stock del producto</span>
-                    }    
+                    }
                 </div>
 
             </div>

@@ -41,17 +41,6 @@
       "stock": 15,
       "descripcion": "con semillas",
       "imagen": "assets/images/panificados/panacity-con_semillas.jpg"
-    },
-    {
-      "id": "dace",
-      "categoria": "Bebidas S/A",
-      "producto": "Jugos",
-      "marca": "Baggio",
-      "peso": 3,
-      "precio": 2000,
-      "stock": 10,
-      "imagen": "",
-      "descripcion": ""
     }
   ]
 }

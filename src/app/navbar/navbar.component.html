@@ -1,0 +1,68 @@
+<div class="navbar-contenedor">
+    <header class="header">
+        <input type="checkbox" class="header-checkbox" id="open-menu">
+        
+        <label for="open-menu" class="header-open_nav_button" role="button" *ngIf="isUserRoute">
+            <a [routerLink]="['/user/carrito']">
+            <span class="material-icons">shopping_cart</span>
+            </a>
+        </label>
+
+        <div class="menu-header-logo">
+            <img class="header-logo" src="assets/images/logoSuper.png" >
+        </div>
+        <a class="header-text" [routerLink]="['/', rolActual?.toLowerCase()]">superOnline</a>
+    
+        <input type="search" class="header-busqueda" id="busqueda" placeholder="Buscar productos..">
+
+    </header> 
+    
+    <div class="categorias-contenedor">
+        <div class="categorias-list">
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'congelados']" class="cat-congelados" src="assets/images/congelados.png" >
+                <!-- <img [routerLink]="['/user/productos', 'congelados']" class="cat-congelados" src="assets/images/congelados.png" > -->
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'congelados']">Congelados</a>
+            </div>
+    
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'panificados']" class="cat-panificados" src="assets/images/panificados.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'panificados']">Panificados</a>
+            </div>
+    
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'limpieza']" class="cat-limpieza" src="assets/images/limpieza.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'limpieza']">Limpieza</a>
+            </div>
+            
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'bebidas-S-A']" class="cat-bebidas_s-a" src="assets/images/bebidass-a.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'bebidasS_A']">Bebidas S/A</a>
+            </div>
+            
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'lacteos-y-frescos']" class="cat-lacteosyfrescos" src="assets/images/lacteosyfrescos.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'lacteosyfrescos']">Lacteos y frescos</a>
+            </div>
+    
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'verduleria']" class="cat-verduleria" src="assets/images/verduleria.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'verduleria']">Verdulería</a>
+            </div>
+    
+            <div class="categoria">
+                <img [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'almacen']" class="cat-almacen" src="assets/images/almacen.png" >
+                <a class="categoria-nombre" [routerLink]="['/', rolActual?.toLowerCase(), 'productos', 'almacen']">Almacen</a>
+            </div>
+    
+        </div> <!--fin div=categorias-list-->
+    </div> <!--fin div=categorias-contenedor-->
+
+    <app-home-admin *ngIf="rolActual?.toLowerCase() === 'admin'"></app-home-admin>
+    
+    <!-- <app-add-productos *ngIf="this.isAddProductosRoute"></app-add-productos> -->
+    <!-- <div *ngIf="this.isAddProductosRoute" class="admin-ruta-addProductos">
+      <app-add-productos></app-add-productos>
+    </div> -->
+
+</div> <!-- fin div-contenedor -->

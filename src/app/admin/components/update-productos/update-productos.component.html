@@ -1,0 +1,87 @@
+<div class="form-update-container">
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <div class="form-etiqueta">
+            <label for="categoria">Categoría</label>
+            <div class="form-input">
+                <input formControlName="categoria">
+            </div>
+        </div><!--Fin form-etiqueta (CATEGORÍA)-->
+
+        <div class="form-etiqueta">
+            <label for="producto">Producto</label>
+            <div class="form-input">
+                <input formControlName="producto">
+            </div>
+        </div><!--Fin form-etiqueta (PRODUCTO)-->
+
+        <div class="form-etiqueta">
+            <label for="marca">Marca</label>
+            <div class="form-input">
+                <input formControlName="marca">
+            </div>
+        </div><!--Fin form-etiqueta (MARCA)-->
+
+        <div class="form-etiqueta">
+            <label for="peso">Peso</label>
+            <div class="form-input">
+                <input type="number" id="peso" formControlName="peso" placeholder="Gramos / Litros"> 
+
+                <div class="form-error">
+                    @if(form.controls['peso'].getError('min')){
+                        <span>Debe ingresar un peso válido</span>
+                    }
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (PESO)-->
+
+
+        <div class="form-etiqueta">
+            <label for="precio">Precio</label>
+            <div class="form-input">
+                <input type="number" id="precio" formControlName="precio">
+
+                <div class="form-error">
+                    @if(form.controls['precio'].getError('min')){
+                        <span>Debe ingresar un precio válido.</span>
+                    }
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (PRECIO)-->
+    
+
+        <div class="form-etiqueta">
+            <label for="stock">Stock</label>
+            <div class="form-input">
+                <input type="number" id="stock" formControlName="stock">
+
+                <div class="form-error">
+                    @if(form.controls['stock'].getError('min')){
+                        <span>Debe ingresar un stock válido</span>
+                    }
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (STOCK)-->
+
+        <div class="form-etiqueta">
+            <label for="descripcion">Descripción</label>
+            <div class="form-input">
+                <input type="text" id="descripcion" formControlName="descripcion" placeholder="Opcional">
+
+                <div class="form-error">
+                    @if(form.controls['descripcion'].getError('maxLength')){
+                        <span>Alcanzó el máximo de carácteres.</span>
+                    }    
+                </div>
+
+            </div>
+        </div><!--Fin form-etiqueta (DESCRIPCIÓN)-->
+        
+        <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+    </form>
+</div>
+
+

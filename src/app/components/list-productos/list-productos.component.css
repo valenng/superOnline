@@ -1,0 +1,179 @@
+.product-list{
+    display: flex; 
+    flex-wrap: wrap;
+    width: 100%;
+    z-index: 1000;
+    justify-content: center;
+    gap: 10px 20px;
+    padding-top: 240px;
+  }
+   
+.product-card {
+    background-color: white;
+    width: 180px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    text-align: center;
+}
+
+.cantidad-seleccion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.cantidad-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cantidad-input {
+    width: 40px;
+    text-align: center;
+}
+
+.agregar-carrito-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 
+  .product-card:hover {
+    transform: scale(1.05); Efecto de escala al pasar el ratón
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+} */
+
+/*
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }*/
+  
+  .product-titulo {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 8px 0;
+    color: #333;
+    /* padding: 10px 0; */
+
+  }
+.product-description{
+  text-transform: uppercase;
+  min-height: 20px; /* Ajusta esta altura según tus necesidades */
+  /* line-height: 1.5; */
+  font-size: 12px;
+  padding-bottom: 5px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+  
+  .product-price {
+    font-size: 20px;
+    color: #4caf50;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+  }
+  
+  .new-price {
+    font-weight: bold;
+  }
+  
+  .acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Espacio entre el contador y el botón */
+}
+
+
+/*DISEÑO PARA ACCIONES DEL ADMINISTRADOR: EDITAR - ELIMINAR*/
+.acciones-admin{
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.acciones-admin a{
+  text-decoration: none;
+  color: white;
+  background-color: green; 
+  padding: 8px 12px; 
+  border-radius: 5px;
+}
+
+.acciones-admin a:hover{
+  background-color: rgb(1, 61, 1);
+}
+
+.acciones-admin button{
+  color: white;
+  background-color: red; 
+  padding: 10px 12px; 
+  border-radius: 5px;
+  border-style: hidden;
+  cursor: pointer;
+}
+
+.acciones-admin button:hover{
+  background-color: rgb(116, 3, 3); 
+}
+/*-----------------------------------------------------------------*/
+
+.cantidad-seleccion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cantidad-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cantidad-input {
+    width: 40px;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield; /*Puse esto para ocultar las flechas dentro del form para incremendar o decrementar la cant*/
+}
+
+.cantidad-input::-webkit-outer-spin-button,
+.cantidad-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Oculta las flechas en Chrome, Safari y Edge */
+    margin: 0;
+}
+
+.agregar-carrito-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}

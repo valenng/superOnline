@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,16 @@ export class RolService {
 
   constructor() { }
 
-  private rol : 'User' | 'Admin' | null = null; 
+  private rolSubject = new BehaviorSubject<string | null>(null);
+  rol$ = this.rolSubject.asObservable();
 
-  setRol(rol: 'User' | 'Admin'){
-    this.rol = rol;
+  setRol(rol: 'User' | 'Admin') {
+    this.rolSubject.next(rol);
   }
 
-  getRol(): 'User' | 'Admin' | null{
-    return this.rol;
+  getRol() {
+    return this.rolSubject.value;
   }
+
+
 }

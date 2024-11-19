@@ -1,14 +1,36 @@
+import { HomeUserComponent } from './home/home-user/home-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListProductosComponent } from './components/list-productos/list-productos.component';
-import { DetailsProductosComponent } from './components/details-productos/details-productos.component';
-import { HomeUserComponent } from './home/home-user/home-user.component';
+import { ListProductosComponent } from '../components/list-productos/list-productos.component';
+import { DetailsProductosComponent } from '../components/details-productos/details-productos.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 const routes: Routes = [
-  {path:'home', component: HomeUserComponent},
-  {path:'productos/:categoria', component: ListProductosComponent},
-  {path:'productos/:id', component: DetailsProductosComponent }
+  {path:'', component: HomeUserComponent},
+  
+  {path: 'carrito', component: CarritoComponent },
+  
+  {
+    path: 'productos/:categoria', component: ListProductosComponent,
+    children: [
+      { path: 'congelados', component: ListProductosComponent },
+      { path: 'panificados', component: ListProductosComponent },
+      { path: 'limpieza', component: ListProductosComponent },
+      { path: 'bebidas-S-A', component: ListProductosComponent },
+      { path: 'lacteos-y-frescos', component: ListProductosComponent },
+      { path: 'verduleria', component: ListProductosComponent },
+      { path: 'almacen', component: ListProductosComponent },
+      
+      { path: 'detalles/:id', component: DetailsProductosComponent },
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

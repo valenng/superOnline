@@ -1,0 +1,73 @@
+
+  :host{
+    margin-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    z-index: 1000; /* Asegurarse de que el formulario esté encima del navbar */
+    padding-top: 150px; /* Ajuste para que no se sobreponga con el navbar */
+  }
+
+  .form-add-container{
+    /* position: absolute; */
+    background-color: #e1f1fd;
+    border: 1px solid #999999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de "caja" */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: auto;
+    overflow-x: hidden;
+    width: 500px; /* Ancho máximo */
+    margin: 20px auto; /* Centrar la caja horizontalmente */
+  }
+
+  .form-etiqueta{
+    margin-top: 10px;
+    margin-bottom: 10px; /* Espaciado entre los campos del formulario */
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+  
+  .form-input input{
+    width: 50%; 
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    text-align: center;
+  }
+  
+.form-select select{
+    width: 53%; 
+    height: 35px;
+    border-radius: 5px;
+    text-align: center;
+}
+.form-error{
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+  }
+
+  .button-submit{
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 14px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease; /* Transición para el cambio de color */
+    margin-left: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .button-submit:disabled{
+    background-color: #cccccc; /* Color de fondo cuando está deshabilitado */
+    cursor: not-allowed; /* Cambiar el cursor cuando está deshabilitado */
+  }
+  
+  .button-submit:hover{
+    background-color: #45a049; 
+  }

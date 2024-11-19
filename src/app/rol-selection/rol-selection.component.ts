@@ -14,14 +14,13 @@ export class RolSelectionComponent {
 
   constructor(private rolService: RolService, private router: Router){}
 
-  seleccionarRol(rol: 'User' | 'Admin'): string{
+  seleccionarRol(rol: 'User' | 'Admin'){
     this.rolService.setRol(rol);
     if(rol == 'User'){
-      this.router.navigate(['/user/home']);
-      return 'User';
+      this.router.navigate(['/user']);
     }else{
       this.router.navigate(['/admin']);
-      return 'Admin'; 
     }
   }
 }
+

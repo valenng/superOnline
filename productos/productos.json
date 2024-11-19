@@ -32,15 +32,14 @@
       "imagen": "assets/images/panificados/panacity-avena_y_cereales.jpg"
     },
     {
-      "id": "aerd",
+      "id": "appd",
       "categoria": "panificados",
       "producto": "pan lactal",
       "marca": "panacity",
-      "peso": 410,
-      "precio": 1500,
-      "stock": 15,
-      "descripcion": "con semillas",
-      "imagen": "assets/images/panificados/panacity-con_semillas.jpg"
+      "peso": 450,
+      "precio": 2000,
+      "stock": 22,
+      "descripcion": "con semillas"
     }
   ]
 }

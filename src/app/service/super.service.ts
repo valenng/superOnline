@@ -22,6 +22,10 @@ export class SuperService {
   getProductos(): Observable<Productos[]>{
     return this.http.get<Productos[]>(this.baseUrl);
   }
+
+  getProductoPorId(id: string | null): Observable<Productos>{
+    return this.http.get<Productos>(`${this.baseUrl}/${id}`)
+  }
   
   agregarAlCarrito(producto: Productos, cantidad: number){
     const carrito = this.cart.value;
@@ -58,6 +62,14 @@ export class SuperService {
     return this.http.post<Productos>(this.baseUrl, producto);
   }
 
+  // ELIMINAR PRODUCTO DEL SISTEMA, NO del carrito.
+  deleteProducto(id: String): Observable<void>{
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
 
+  // ACTUALIZAR PRODUCTO DEL SISTEMA
+  updateProducto(producto: Productos, id: string | null): Observable<Productos>{
+    return this.http.put<Productos>(`${this.baseUrl}/${id}`, producto);
+  }
 
 }

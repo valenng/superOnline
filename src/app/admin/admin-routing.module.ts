@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeAdminComponent } from './home/home-admin/home-admin.component';
 import { ListProductosComponent } from '../components/list-productos/list-productos.component'; // Este es un ejemplo
 import { AddProductosComponent } from './components/add-productos/add-productos.component';
+import { UpdateProductosComponent } from './components/update-productos/update-productos.component';
 
 const routes: Routes = [
   // {path:'home', component: HomeAdminComponent},
@@ -17,7 +18,13 @@ const routes: Routes = [
       { path: 'almacen', component: ListProductosComponent },
     ]
   },
-  {path: 'add-productos', component: AddProductosComponent}
+  {path: 'add-productos', component: AddProductosComponent},
+  {path: 'update-productos/:id', component: UpdateProductosComponent},
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 

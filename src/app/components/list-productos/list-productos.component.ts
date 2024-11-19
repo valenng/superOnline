@@ -49,5 +49,13 @@ export class ListProductosComponent implements OnInit{
     this.servicio.agregarAlCarrito(item, cantidad);
   }
 
+  // LO ELIMINA DEL JSON (o del sistema digamos), NO del carrito
+  eliminarProducto(id?: string): void {
+    this.servicio.deleteProducto(id!).subscribe(() => {
+    this.productos = this.productos.filter(p => p.id !== id);
+    })
+  }
+
+
 
 }

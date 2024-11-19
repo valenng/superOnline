@@ -23,6 +23,11 @@ const routes: Routes = [
       
       { path: 'detalles/:id', component: DetailsProductosComponent },
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 

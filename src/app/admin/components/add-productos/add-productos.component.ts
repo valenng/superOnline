@@ -126,9 +126,6 @@ export class AddProductosComponent {
     }
   }
 
-
-
-
   onSubmit(){
     if(this.form.invalid) return;
     const producto = this.form.getRawValue() as Productos;

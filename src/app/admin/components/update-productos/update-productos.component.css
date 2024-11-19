@@ -1,5 +1,4 @@
-
-  :host{
+:host{
     margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
@@ -8,26 +7,26 @@
     padding-top: 150px; /* Ajuste para que no se sobreponga con el navbar */
   }
 
-  .form-add-container{
-    /* position: absolute; */
-    background-color: #e1f1fd;
-    border: 1px solid #999999;
+  .form-update-container{
+    background-color: #0f466b;
+    border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de "caja" */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px; 
     overflow: auto;
     overflow-x: hidden;
-    width: 500px; /* Ancho máximo */
+    width: 500px; 
     margin: 20px auto; /* Centrar la caja horizontalmente */
   }
 
   .form-etiqueta{
     margin-top: 10px;
-    margin-bottom: 10px; /* Espaciado entre los campos del formulario */
+    margin-bottom: 10px;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     letter-spacing: 3px;
+    color: white;
   }
   
   .form-input input{
@@ -38,12 +37,6 @@
     text-align: center;
   }
   
-.form-select select{
-    width: 53%; 
-    height: 35px;
-    border-radius: 5px;
-    text-align: center;
-}
 .form-error{
     color: red;
     font-size: 0.875rem;
@@ -64,7 +57,7 @@
   }
   
   .button-submit:disabled{
-    background-color: #cccccc; /* Color de fondo cuando está deshabilitado */
+    background-color: #cccccc; 
     cursor: not-allowed; /* Cambiar el cursor cuando está deshabilitado */
   }
   

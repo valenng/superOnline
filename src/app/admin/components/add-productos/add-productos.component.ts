@@ -19,26 +19,26 @@ export class AddProductosComponent {
 
   categoriasObject: CategoriasObject = {
 
-  "Congelados":{
+  "congelados":{
     "Hamburguesa": ["Paty Express", "Swift", "Paty"],
     "Papas fritas": ["Mc Cain"],
     "Milanesas": ["Lucchetti", "Granja del Sol", "Vegetalex", "NOT"],
     "Patitas de pollo": ["Swift", "Granja del Sol"]
   },
 
-  "Panificados":{
+  "panificados":{
     "Prepizza": ["Parliamo", "Coco's"],
     "Pan lactal": ["Panacity", "Bimbo", "Fargo"]
   },
 
-  "Limpieza": {
+  "limpieza": {
     "Papel higienico": ["Higienol", "Elite", "Campanita"],
     "Rollo de cocina": ["Sussex", "Campanita", "Elite"],
     "Limpiador": ["MrMusculo", "Ayudin", "Pato", "Cif"],
     "Lavandina": ["Ayudin", "Vim"]    
   },
 
-  "Bebidas S/A":{
+  "bebidas-S-A":{
     "Agua": ["Villavicencio", "Villa del Sur", "Glaciar", "Benedictino"],
     "Gaseosa": ["Coca Cola", "7up", "Sprite", "Schweppes", "Fanta", "Pepsi"],
     "Agua saborizada": ["Levite", "Brio", "Aquarius"],
@@ -46,14 +46,14 @@ export class AddProductosComponent {
     "Soda": ["Saldan", "Ivess"],
   },
 
-  "Lácteos y frescos": {
+  "lacteos-y-frescos": {
     "Yogur": ["Yogurisimo", "Milkaut", "La Serenisima", "Ser", "Actimel"],
     "Leche": ["La Serenisima", "Tregar", "Verónica", "iLolay", "Silk", "Milkaut"],
     "Tapa para empanadas": ["La Salteña", "La negra Simona", "Tapamar"],
     "Manteca": ["La Serenisima", "La Paulina", "SanCor", "Milkaut", "Verónica"]
   },
 
-  "Verdulería":{
+  "verduleria":{
     "Banana": ["-"],
     "Papa": ["-"],
     "Palta": ["-"],
@@ -67,7 +67,7 @@ export class AddProductosComponent {
     "Frutilla": ["-"],
   },
 
-  "Almacen":{
+  "almacen":{
     "Aceite": ["Natura", "Cañuelas", "Cocinero", ],
     "Arroz": ["Gallo Oro", "Amanda", "Lucchetti", "San Giorgio", "Molinos Ala"],
     "Cafe": ["Nescafe Dolca", "Cabrales", "Arlistán", "La Virginia", "Nescafe Gold"],

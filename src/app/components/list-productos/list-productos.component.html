@@ -1,29 +1,44 @@
 <div class="product-list">
   <div class="product-card" *ngFor="let item of productos">
-      <div class="product-image">
-          <img [src]="item.imagen" alt="{{ item.producto }}" />
-      </div>
-      <div class="product-info">
-          <h3>{{ item.producto }} - {{ item.marca }}</h3>
-          <p class="product-description">{{ item.descripcion }}</p>
-          <p class="product-price">
-              <span class="new-price">{{ item.precio | currency }}</span>
-          </p>
 
-          <div class ="acciones">
-          <!-- Selector de cantidad -->
-            <div class="cantidad-seleccion">
+      <!-- <div class="product-image">
+          <img [src]="item.imagen" alt="{{ item.producto }}" />
+      </div> -->
+
+        <div class="product-titulo">
+          <h3>{{ item.producto }} <br> {{ item.marca }}</h3>
+        </div>
+          
+        <div class="product-description">
+          <!-- {{item.peso}} <br> -->
+          {{ item.descripcion }}
+        </div>
+
+        <div class="product-price">
+          <span class="new-price">{{ item.precio | currency }}</span>
+        </div>
+
+          <div class ="acciones" *ngIf="isUserRoute"> <!--Mostrar únicamente si está en la ruta user-->
+            <!-- Selector de cantidad -->
+            <div class="cantidad-seleccion" >
                 <button (click)="decrementarCantidad(item)" class="cantidad-btn">-</button>
                 <input type="number" [(ngModel)]="item.cantidad" min="1" class="cantidad-input">
                 <button (click)="incrementarCantidad(item)" class="cantidad-btn">+</button>
             </div>
 
-          <!-- Botón para agregar al carrito -->
+            <!-- Botón para agregar al carrito -->
             <button (click)="agregarAlCarrito(item, item.cantidad || 1)" class="agregar-carrito-btn">Agregar al Carrito</button>
+          </div> <!-- Fin div=acciones -->
+
+          
+          <div class="acciones-admin" *ngIf="!isUserRoute">
+            <a [routerLink]="['/admin/update-productos', item.id]">Editar</a>
+            <button (click)="eliminarProducto(item.id)">Eliminar</button>
           </div>
-      </div>
-    </div>
-</div>
+
+    </div> <!--Fin div= product-card -->
+
+</div> <!--Fin div= product-list -->
 
 
 <!-- Modificar para que se vea de determinada forma en admin y user -->

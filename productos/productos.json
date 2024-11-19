@@ -26,10 +26,9 @@
       "producto": "pan lactal",
       "marca": "panacity",
       "peso": 410,
-      "precio": 1500,
+      "precio": 1700,
       "stock": 20,
-      "descripcion": "avena y cereales",
-      "imagen": "assets/images/panificados/panacity-avena_y_cereales.jpg"
+      "descripcion": "avena y cereales"
     },
     {
       "id": "appd",
@@ -40,6 +39,39 @@
       "precio": 2000,
       "stock": 22,
       "descripcion": "con semillas"
+    },
+    {
+      "id": "0a16",
+      "categoria": "bebidas-S-A",
+      "producto": "Gaseosa",
+      "marca": "Coca Cola",
+      "peso": 1.5,
+      "precio": 2200,
+      "stock": 12,
+      "imagen": "",
+      "descripcion": ""
+    },
+    {
+      "id": "08af",
+      "categoria": "limpieza",
+      "producto": "Rollo de cocina",
+      "marca": "Sussex",
+      "peso": 200,
+      "precio": 1600,
+      "stock": 20,
+      "imagen": "",
+      "descripcion": "(200 paños)"
+    },
+    {
+      "id": "2ccb",
+      "categoria": "limpieza",
+      "producto": "Limpiador",
+      "marca": "Cif",
+      "peso": 1,
+      "precio": 2000,
+      "stock": 2,
+      "imagen": "",
+      "descripcion": ""
     }
   ]
 }

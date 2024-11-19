@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    z-index: 1000; /* Asegúrate de que el formulario esté encima del navbar */
+    z-index: 1000; /* Asegurarse de que el formulario esté encima del navbar */
     padding-top: 150px; /* Ajuste para que no se sobreponga con el navbar */
   }
 

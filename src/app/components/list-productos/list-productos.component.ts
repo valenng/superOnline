@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Productos } from '../../types/productos';
 import { SuperService } from '../../service/super.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './list-productos.component.html',
   styleUrl: './list-productos.component.css'
 })
 export class ListProductosComponent implements OnInit{
   
-  constructor(private servicio: SuperService, private route: ActivatedRoute){}
+  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){}
 
   productos: Productos[] = [];
 
@@ -33,6 +33,7 @@ export class ListProductosComponent implements OnInit{
         });
       }
     });
+    this.verificarRutaUser();
   }
 
   incrementarCantidad(item: Productos){
@@ -56,6 +57,16 @@ export class ListProductosComponent implements OnInit{
     })
   }
 
+  // Para verificar si está en la ruta user, y en base a eso ver cómo mostrar dependiendo el rol actual
+
+  isUserRoute: boolean = false; 
+
+  verificarRutaUser(): void {
+    this.isUserRoute = this.router.url === '/user';
+    this.router.events.subscribe(() => {
+      this.isUserRoute = this.router.url === '/user';
+    });
+  }
 
 
 }

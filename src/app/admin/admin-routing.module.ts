@@ -12,8 +12,8 @@ const routes: Routes = [
       { path: 'congelados', component: ListProductosComponent },
       { path: 'panificados', component: ListProductosComponent },
       { path: 'limpieza', component: ListProductosComponent },
-      { path: 'bebidasS_A', component: ListProductosComponent },
-      { path: 'lacteosyfrescos', component: ListProductosComponent },
+      { path: 'bebidas-S-A', component: ListProductosComponent },
+      { path: 'lacteos-y-frescos', component: ListProductosComponent },
       { path: 'verduleria', component: ListProductosComponent },
       { path: 'almacen', component: ListProductosComponent },
     ]

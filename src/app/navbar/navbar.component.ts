@@ -5,12 +5,12 @@ import { RolService } from '../rol-selection/service/rol.service';
 import { HomeAdminComponent } from "../admin/home/home-admin/home-admin.component";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AddProductosComponent } from '../admin/components/add-productos/add-productos.component';
+// import { AddProductosComponent } from '../admin/components/add-productos/add-productos.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, HomeAdminComponent, CommonModule, AddProductosComponent],
+  imports: [RouterLink, HomeAdminComponent, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit{
       console.log(this.rolActual);
     });
     this.verificarRutaAddProductos(); 
+    this.verificarRutaUser();
   }
 
   barraCarrito(){
@@ -41,4 +42,11 @@ export class NavbarComponent implements OnInit{
     });
   }
 
+  isUserRoute: boolean = false; 
+  verificarRutaUser(): void {
+    this.isUserRoute = this.router.url === '/user';
+    this.router.events.subscribe(() => {
+      this.isUserRoute = this.router.url === '/user';
+    });
+  }
 }

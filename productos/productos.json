@@ -16,7 +16,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1800,
-      "stock": 15,
+      "stock": 11,
       "descripcion": "salvado",
       "imagen": "assets/images/panificados/panacity-salvado.jpg"
     },
@@ -27,7 +27,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1700,
-      "stock": 20,
+      "stock": 18,
       "descripcion": "avena y cereales"
     },
     {

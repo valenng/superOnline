@@ -3,16 +3,25 @@ import { CommonModule } from '@angular/common';
 import { SuperService } from '../../../service/super.service';
 import { Productos } from '../../../types/productos';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-carrito',
     standalone: true,
-    imports: [CommonModule, RouterLink],
+    imports: [CommonModule, RouterLink, FormsModule],
     templateUrl: './carrito.component.html',
     styleUrl: './carrito.component.css',
 })
 export class CarritoComponent implements OnInit {
     items: Productos[] = []; // Almacena los productos del carrito
+    mostrarFormulario: boolean = false;
+
+    datosTarjeta = {
+        nombre: '',
+        numero: '',
+        fecha: '',
+        cvv: ''
+    };
 
     constructor(private servicio: SuperService) {}
 
@@ -46,5 +55,26 @@ export class CarritoComponent implements OnInit {
 
     vaciarCarrito(): void{
         this.servicio.vaciarCarrito();
+    }
+
+    procesarPago(): void {
+        // Procesa el pago
+        console.log('Datos de la tarjeta:', this.datosTarjeta);
+        alert('Pago procesado exitosamente');
+      
+        // Actualiza el stock de los productos
+        this.servicio.actualizarStock(this.items).subscribe({
+          next: () => {
+            console.log('Stock actualizado correctamente');
+            // Vacía el carrito después de actualizar el stock
+            this.vaciarCarrito();
+            // Oculta el formulario
+            this.mostrarFormulario = false;
+          },
+          error: (err) => {
+            console.error('Error al actualizar el stock:', err);
+            alert('Hubo un problema al actualizar el stock.');
+          },
+        });
     }
 }

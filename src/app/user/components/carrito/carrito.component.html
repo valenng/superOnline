@@ -53,12 +53,35 @@
     <!-- Total y botón para vaciar el carrito -->
     <p class="carrito-total">Total: {{ getTotal() | currency }}</p>
     <button (click)="vaciarCarrito()" class="vaciar-carrito-btn">Vaciar carrito</button>
+    <button (click)="mostrarFormulario = true">Ir a pagar</button>
   </div>
 
   <div class="carrito-vacio" *ngIf="items.length == 0"> 
     <span>No hay productos en el carrito.</span>
   </div>
 
+  <div *ngIf="mostrarFormulario" class="formulario-tarjeta">
+    <h3>Datos de la Tarjeta</h3>
+    <form (ngSubmit)="procesarPago()">
+      <div>
+        <label for="nombre">Nombre en la Tarjeta:</label>
+        <input id="nombre" type="text" [(ngModel)]="datosTarjeta.nombre" name="nombre" required />
+      </div>
+      <div>
+        <label for="numero">Número de Tarjeta:</label>
+        <input id="numero" type="text" [(ngModel)]="datosTarjeta.numero" name="numero" required />
+      </div>
+      <div>
+        <label for="fecha">Fecha de Vencimiento:</label>
+        <input id="fecha" type="month" [(ngModel)]="datosTarjeta.fecha" name="fecha" required />
+      </div>
+      <div>
+        <label for="cvv">CVV:</label>
+        <input id="cvv" type="password" [(ngModel)]="datosTarjeta.cvv" name="cvv" required />
+      </div>
+      <button type="submit">Procesar Pago</button>
+    </form>
+  </div>
   <!-- <ng-template #carritoVacio class="carrito-vacio">
     <p>No hay productos en el carrito.</p>
   </ng-template> -->

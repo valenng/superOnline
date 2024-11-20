@@ -109,8 +109,8 @@
     display: flex;
     background-color: #086dae;
     flex-wrap: wrap;
-    justify-content: center; /* Centra las imágenes horizontalmente */
-    gap: 4rem; /* Espaciado entre las imágenes */
+    justify-content: center; 
+    gap: 4rem; 
     padding: 10px;
     z-index: 1000;
 }
@@ -118,35 +118,34 @@
 .categorias-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Ajusta el espaciado entre las imágenes dentro del contenedor */
-    width: 55%; /* Asegura que ocupe todo el ancho disponible */
+    justify-content: space-between; 
+    width: 55%; 
 }
 
 .categoria {
     display: flex;
-    flex-direction: column; /* Alinea la imagen y el texto en columna */
-    align-items: center; /* Centra la imagen y el texto horizontalmente */
+    flex-direction: column; 
+    align-items: center; 
     text-align: center; /* Centra el texto */
 }
 
 .categorias-list img {
-    width: 50px; /* Ajusta el tamaño de las imágenes */
-    height: auto; /* Ajusta el tamaño de las imágenes */
-    object-fit: cover; /* Hace que la imagen se ajuste sin perder la proporción */
-    border-radius: 8px; /* Redondea las esquinas si lo deseas */
-    transition: transform 0.3s ease; /* Añade una transición suave al hacer hover */
+    width: 50px; 
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    transition: transform 0.3s ease; 
 }
 
-/* Añadir efectos al hacer hover */
 .categorias-list img:hover {
-    transform: scale(1.1); /* Hace que la imagen crezca un poco al pasar el ratón */
+    transform: scale(1.1); 
 }
 
 .categoria-nombre {
     margin-top: 8px; /* Espacio entre la imagen y el texto */
-    font-size: 12px; /* Ajusta el tamaño del texto */
-    color: #fff; /* Color blanco para el texto */
-    font-weight: bold; /* Puedes ponerlo en negrita si prefieres */
+    font-size: 12px; 
+    color: #fff; 
+    font-weight: bold; 
     text-transform: uppercase;
     text-decoration: none;
 }
@@ -165,4 +164,47 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000; /* Asegura que esté sobre la barra de navegación */
     border-radius: 5px;
+}
+
+/* --------------------------------- */
+/* LOGO DEL CARRITO PÁGINA PRINCIPAL */
+
+.material-icons{
+    color: white;
+    background-color: #0f466b;
+    padding: 8px;
+    border-radius: 115px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+/* LOGO FLECHITA HACIA PÁGINA PRINCIPAL (Elegir el rol)*/
+.return{
+    background-color: #0a2d47;
+    padding: 8px;
+    border-radius: 16px;
+    width: 40px;
+    height: 35px;
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+
+}
+
+.return h1{
+    color:white;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: -10px;
+    text-align: center;
+}
+
+.return a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 4px;
+    text-align: center;
 }

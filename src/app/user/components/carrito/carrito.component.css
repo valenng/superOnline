@@ -16,7 +16,8 @@
   background-color: #086dae;
   padding: 5px 20px;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin-bottom: 0px;
 }
 
 .carrito-header h1{
@@ -37,14 +38,39 @@
   font-weight: bold;
 }
 
+.carrito-contenido{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  border-bottom: 1px solid #888282;
+}
+
+.articulo{
+  font-weight: normal;
+  font-size: 25px;
+  align-self: center;
+  margin-inline-end: auto;
+  margin-left: 60px;
+}
+
+.articulo-info{
+  display: flex;
+  margin-right: 100px ;
+}
+
+.articulo-info h2{
+  font-weight: normal;
+  font-size: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+  
 .carrito-item {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
-  /* margin-bottom: 10px; */
-  /* margin-top: 25px; */
 }
 
 .carrito-imagen img {
@@ -64,7 +90,6 @@
   flex: 1;
   display: flex;
   flex-direction:row;
-  margin-right: 60px;
   justify-content: space-between;
 }
 
@@ -83,28 +108,30 @@
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.carrito-precio-unitario {
+.carrito-precio-unitario{
   color: green;
   margin: 5px 0 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-left: 100px;
-  margin-top: 15px;
+  font-size: 20px;
+  /* margin-top: 15px; */
+  margin-right: 65px;
 }
 
 .carrito-precio-total {
-  color: #28a745;
+  color: green;
   margin: 5px 0 0;
-  font-size: 14px;
-  font-weight: bolder;
+  font-size: 20px;
+  /* margin-right: 25px; */
+  margin-left: 60px;
+  margin-right: -20px;
 }
 
 .carrito-cantidad {
   display: flex;
   align-items: center;
+  margin-right: 170px;
 }
 
-.carrito-cantidad button { /*Son todos los botones: - / + o tachito*/
+.carrito-cantidad button { /*Son todos los botones: - / + */
   color: white;
   border: none;
   padding: 5px;
@@ -116,6 +143,12 @@
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.carrito-cantidad-btn{
+  margin-left: 25px;
+  margin-right: 40px;
+}
+
 
 .carrito-cantidad-btn button{
   background-color: #007bff;
@@ -134,9 +167,10 @@
 
 .carrito-total {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
   color: #333;
   margin-top: 20px;
+  margin-right: 30px;
   text-align: right;
 }
 
@@ -158,9 +192,18 @@
 
 
 .eliminar-producto-btn {
-  background-color: #ff1900;
+  display: flex;
+  /* align-items: center; */
+  margin-right: 15px;
 }
 
-.eliminar-producto-btn:hover {
+.eliminar-producto-btn button{
+  background-color: #ff1900;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+}
+
+.eliminar-producto-btn button:hover {
   background-color: #c71501;
 }

@@ -58,6 +58,11 @@
         </div> <!--fin div=categorias-list-->
     </div> <!--fin div=categorias-contenedor-->
 
+    <div class="return">
+        <h1>ROL</h1>
+        <a [routerLink]="[' ']">←</a>
+    </div>
+    
     <app-home-admin *ngIf="rolActual?.toLowerCase() === 'admin'"></app-home-admin>
     
     <!-- <app-add-productos *ngIf="this.isAddProductosRoute"></app-add-productos> -->

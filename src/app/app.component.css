@@ -6,7 +6,7 @@
 
 }
 
-html, body {
+.body {
     height: 100%;
     overflow-x: hidden; /* Evita el desplazamiento horizontal si es necesario */
 }

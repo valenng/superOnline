@@ -1,25 +1,39 @@
 <div class="carrito-pagina">
-  <h2>Mi Carrito de Compras</h2>
-  <div *ngIf="items.length > 0; else carritoVacio">
+  
+  <div class="carrito-header">
+    <a [routerLink]="['/user']">←</a>
+    <h1>Carrito de compras</h1>
+  </div>
+  
+  <div *ngIf="items.length > 0">
     <div *ngFor="let item of items" class="carrito-item">
+
       <!-- Imagen del producto -->
-      <div class="carrito-imagen">
+      <!-- <div class="carrito-imagen">
         <img [src]="item.imagen" alt="{{ item.producto }}" />
-      </div>
+      </div> -->
 
       <!-- Información del producto -->
       <div class="carrito-info">
-        <p class="carrito-nombre">{{ item.producto }}</p>
-        <p class="carrito-precio-total">Precio unitario: {{ item.precio | currency }}</p>
+        <div class="info">
+          <span class="carrito-nombre">{{ item.producto }} - {{item.marca}}</span>
+          <span class="carrito-prod-descripcion">{{item.descripcion}}</span>
+        </div>
+        
+        <span class="carrito-precio-unitario">Precio unitario: {{ item.precio | currency }}</span>
       </div>
 
       <!-- Modificación de cantidad -->
       <div class="carrito-cantidad">
         <button (click)="eliminarProducto(item.id!)" class="eliminar-producto-btn">🗑️</button>
-        <button (click)="decrementarCantidad(item)">-</button>
-        <span>{{ item.cantidad }}</span>
-        <button (click)="incrementarCantidad(item)">+</button>
-        <p class="carrito-precio-total">Total: {{ (item.precio! * item.cantidad!) | currency }}</p>
+        
+        <div class="carrito-cantidad-btn">
+           <button (click)="decrementarCantidad(item)">-</button>
+            <span>{{ item.cantidad }}</span>
+            <button (click)="incrementarCantidad(item)">+</button>
+        </div>
+        
+        <span class="carrito-precio-total">Total: {{ (item.precio! * item.cantidad!) | currency }}</span>
       </div>
     </div>
 
@@ -27,8 +41,13 @@
     <p class="carrito-total">Total: {{ getTotal() | currency }}</p>
     <button (click)="vaciarCarrito()" class="vaciar-carrito-btn">Vaciar Carrito</button>
   </div>
-  <ng-template #carritoVacio>
+
+  <div class="carrito-vacio" *ngIf="items.length == 0"> 
+    <span>No hay productos en el carrito.</span>
+  </div>
+
+  <!-- <ng-template #carritoVacio class="carrito-vacio">
     <p>No hay productos en el carrito.</p>
-  </ng-template>
+  </ng-template> -->
 </div>
 

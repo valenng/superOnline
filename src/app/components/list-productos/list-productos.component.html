@@ -18,7 +18,7 @@
           <span class="new-price">{{ item.precio | currency }}</span>
         </div>
 
-          <div class ="acciones" *ngIf="isUserRoute"> <!--Mostrar únicamente si está en la ruta user-->
+          <div class ="acciones" *ngIf="isUserRoute || isProdCatRoute"> <!--Mostrar únicamente si está en la ruta user-->
             <!-- Selector de cantidad -->
             <div class="cantidad-seleccion" >
                 <button (click)="decrementarCantidad(item)" class="cantidad-btn">-</button>
@@ -31,7 +31,7 @@
           </div> <!-- Fin div=acciones -->
 
           
-          <div class="acciones-admin" *ngIf="!isUserRoute">
+          <div class="acciones-admin" *ngIf="!isUserRoute && !isProdCatRoute">
             <a [routerLink]="['/admin/update-productos', item.id]">Editar</a>
             <button (click)="eliminarProducto(item.id)">Eliminar</button>
           </div>

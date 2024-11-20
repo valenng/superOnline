@@ -2,7 +2,7 @@
     <header class="header">
         <input type="checkbox" class="header-checkbox" id="open-menu">
         
-        <label for="open-menu" class="header-open_nav_button" role="button" *ngIf="isUserRoute">
+        <label for="open-menu" class="header-open_nav_button" role="button" *ngIf="isUserRoute || isProdCatRoute">
             <a [routerLink]="['/user/carrito']">
             <span class="material-icons">shopping_cart</span>
             </a>

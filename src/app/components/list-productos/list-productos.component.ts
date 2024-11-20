@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListProductosComponent implements OnInit{
   
-  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){}
+  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){
+    this.verificarRutaProdCat();
+  }
 
   productos: Productos[] = [];
 
@@ -68,5 +70,11 @@ export class ListProductosComponent implements OnInit{
     });
   }
 
+  isProdCatRoute: boolean = false; 
 
+  verificarRutaProdCat(): void {
+    this.router.events.subscribe(() => {
+      this.isProdCatRoute = this.router.url.startsWith('/user/productos/');
+    });
+  }
 }

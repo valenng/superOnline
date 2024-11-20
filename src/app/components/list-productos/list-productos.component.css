@@ -177,3 +177,7 @@
     border-radius: 4px;
     font-size: 12px;
 }
+
+.agregar-carrito-btn:hover{
+  background-color: #175726;
+}

@@ -16,7 +16,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1800,
-      "stock": 11,
+      "stock": 9,
       "descripcion": "salvado",
       "imagen": "assets/images/panificados/panacity-salvado.jpg"
     },
@@ -27,7 +27,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1700,
-      "stock": 18,
+      "stock": 17,
       "descripcion": "avena y cereales"
     },
     {
@@ -37,7 +37,7 @@
       "marca": "panacity",
       "peso": 450,
       "precio": 2000,
-      "stock": 22,
+      "stock": 18,
       "descripcion": "con semillas"
     },
     {
@@ -47,7 +47,7 @@
       "marca": "Coca Cola",
       "peso": 1.5,
       "precio": 2200,
-      "stock": 12,
+      "stock": 11,
       "imagen": "",
       "descripcion": ""
     },
@@ -69,7 +69,7 @@
       "marca": "Cif",
       "peso": 1,
       "precio": 2000,
-      "stock": 2,
+      "stock": 10,
       "imagen": "",
       "descripcion": ""
     }

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SuperService } from '../../../service/super.service';
 import { Productos } from '../../../types/productos';
-import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-carrito',
     standalone: true,
-    imports: [CommonModule, RouterLink, FormsModule],
+    imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
     templateUrl: './carrito.component.html',
     styleUrl: './carrito.component.css',
 })
@@ -23,7 +23,7 @@ export class CarritoComponent implements OnInit {
         cvv: ''
     };
 
-    constructor(private servicio: SuperService) {}
+    constructor(private servicio: SuperService, private route: Router) {}
 
     ngOnInit(): void {
         this.servicio.getCarrito().subscribe((productos: Productos[]) => {
@@ -57,6 +57,17 @@ export class CarritoComponent implements OnInit {
         this.servicio.vaciarCarrito();
     }
 
+
+    private fb = inject(FormBuilder);
+
+    form = this.fb.group({
+        nombre: [0, [Validators.required, Validators.maxLength(30)]],
+        numero: [0, [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
+        fecha: [0, [Validators.required]],
+        cvv: [0, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
+    });
+
+
     procesarPago(): void {
         // Procesa el pago
         console.log('Datos de la tarjeta:', this.datosTarjeta);
@@ -70,6 +81,7 @@ export class CarritoComponent implements OnInit {
             this.vaciarCarrito();
             // Oculta el formulario
             this.mostrarFormulario = false;
+            this.route.navigate(['/user']);
           },
           error: (err) => {
             console.error('Error al actualizar el stock:', err);
@@ -77,4 +89,5 @@ export class CarritoComponent implements OnInit {
           },
         });
     }
+
 }

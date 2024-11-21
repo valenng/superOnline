@@ -175,21 +175,27 @@
 }
 
 .vaciar-carrito-btn {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: block;
-  margin: 10px auto;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
+  display: flex;
+  justify-content: end;
+  margin-top: -10px;
+  margin-right: 30px;
 }
 
+.vaciar-carrito-btn button{
+  background-color: red;
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  box-shadow: 0px 4px 8px rgb(255 3 3 / 50%);
+}
+
+.vaciar-carrito-btn button:hover{
+  background-color: rgb(126, 7, 7);
+}
 
 .eliminar-producto-btn {
   display: flex;
@@ -206,4 +212,113 @@
 
 .eliminar-producto-btn button:hover {
   background-color: #c71501;
+}
+
+.carrito-pagar{
+  display: flex;
+  justify-content: center;
+}
+
+.carrito-pagar button{
+  background-color: #28a745;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 10px;
+  border-style: none;
+  width: 170px;
+  box-shadow: 0px 4px 8px rgb(42 116 0);
+  
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: monospace;
+  cursor:pointer
+}
+
+.carrito-pagar button:hover{
+  background-color: #11501f;
+}
+
+.formulario{
+  display: flex;
+  justify-content: center;
+}
+
+.formulario-tarjeta{
+  background-color: #f0f8ff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #999999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  border-radius: 50px;
+  width: 600px;
+  padding: 35px 10px;
+  align-items: center;
+}
+
+.formulario-tarjeta h3{
+  align-self: center;
+  text-transform: uppercase;
+  font-family: math;
+  letter-spacing: 2px;
+  margin-top: -15px;
+  text-decoration: underline
+}
+
+.info-tarjeta{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formulario-tarjeta label{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 3.5px;
+}
+
+.formulario-tarjeta input{
+  height: 30px;
+  width: 270px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.info-tarjeta-submit{
+  display: flex;
+  justify-content: center;
+}
+
+.info-tarjeta-submit button{
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border-style: groove;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.info-tarjeta-submit button:hover{
+  background-color: #11501f;
+}
+
+.info-tarjeta-submit button:disabled{
+  background-color: #cccccc; 
+  cursor: not-allowed; 
+}
+
+.form-error{
+  color: red;
+  font-size: 16px;
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
 }

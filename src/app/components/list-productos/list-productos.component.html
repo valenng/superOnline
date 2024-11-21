@@ -9,7 +9,7 @@
         <h3 [routerLink]="['/user/detalles', item.id]">{{ item.producto }} <br> {{ item.marca }}</h3>
         <!-- <h3>{{ item.producto }} <br> {{ item.marca }}</h3> -->
       </div>
-      <div class="product-titulo2" *ngIf="!isUserRoute">
+      <div class="product-titulo2" *ngIf="!isUserRoute && !isProdCatRoute">
         <h3>{{ item.producto }} <br> {{ item.marca }}</h3>
         <!-- <h3>{{ item.producto }} <br> {{ item.marca }}</h3> -->
       </div>

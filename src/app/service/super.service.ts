@@ -57,6 +57,50 @@ export class SuperService {
     return this.cart$; // Carrito como observable
   }
 
+  actualizarStock(items: Productos[]): Observable<void> {
+    return new Observable<void>((observer) => {
+      let actualizacionesPendientes = items.length;
+  
+      items.forEach((item) => {
+        const url = `${this.baseUrl}/${item.id}`; // URL específica para cada producto
+  
+        // Obtén el producto actual para conservar sus propiedades
+        this.http.get<Productos>(url).subscribe({
+          next: (producto) => {
+            // Actualizamos solo el stock, conservando el resto de las propiedades
+            const updatedProducto = {
+              ...producto, // Copia todas las propiedades actuales
+              stock: (producto.stock || 0) - (item.cantidad || 1), // Actualiza el stock
+            };
+  
+            // Envía el producto actualizado de vuelta
+            this.http.put(url, updatedProducto).subscribe({
+              next: () => {
+                actualizacionesPendientes--;
+                if (actualizacionesPendientes === 0) {
+                  // Cuando todas las actualizaciones hayan terminado, notificamos al observer
+                  observer.next();
+                }
+              },
+              error: (err) => {
+                observer.error(err);
+              },
+            });
+          },
+          error: (err) => {
+            observer.error(err);
+          },
+        });
+      });
+  
+      // Si no hay productos, completamos inmediatamente
+      if (items.length === 0) {
+        observer.next();
+      }
+    });
+  }
+  
+
   // AGREGAR NUEVO PRODUCTO AL SISTEMA
   addProducto(producto: Productos): Observable<Productos>{
     return this.http.post<Productos>(this.baseUrl, producto);

@@ -7,7 +7,7 @@
       "marca": "la virginia",
       "peso": 170,
       "precio": 5200,
-      "stock": 20
+      "stock": 19
     },
     {
       "id": "asad",
@@ -16,7 +16,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1800,
-      "stock": 15,
+      "stock": 9,
       "descripcion": "salvado",
       "imagen": "assets/images/panificados/panacity-salvado.jpg"
     },
@@ -27,7 +27,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1700,
-      "stock": 20,
+      "stock": 15,
       "descripcion": "avena y cereales"
     },
     {
@@ -37,7 +37,7 @@
       "marca": "panacity",
       "peso": 450,
       "precio": 2000,
-      "stock": 22,
+      "stock": 1,
       "descripcion": "con semillas"
     },
     {
@@ -47,19 +47,17 @@
       "marca": "Coca Cola",
       "peso": 1.5,
       "precio": 2200,
-      "stock": 12,
-      "imagen": "",
-      "descripcion": ""
+      "stock": 5,
+      "imagen": ""
     },
     {
       "id": "08af",
       "categoria": "limpieza",
       "producto": "Rollo de cocina",
       "marca": "Sussex",
-      "peso": 200,
+      "peso": 205,
       "precio": 1600,
       "stock": 20,
-      "imagen": "",
       "descripcion": "(200 paños)"
     },
     {
@@ -69,9 +67,64 @@
       "marca": "Cif",
       "peso": 1,
       "precio": 2000,
-      "stock": 2,
+      "stock": 10,
       "imagen": "",
-      "descripcion": ""
+      "descripcion": null
+    },
+    {
+      "id": "fbe8",
+      "categoria": "congelados",
+      "producto": "Hamburguesa",
+      "marca": "Swift",
+      "peso": 300,
+      "precio": 3000,
+      "stock": 30,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "3008",
+      "categoria": "bebidas-S-A",
+      "producto": "Gaseosa",
+      "marca": "Sprite",
+      "peso": 7,
+      "precio": 7,
+      "stock": 6,
+      "imagen": "",
+      "descripcion": "(200 paños)"
+    },
+    {
+      "id": "5223",
+      "categoria": "verduleria",
+      "producto": "Zanahoria",
+      "marca": "-",
+      "peso": 1,
+      "precio": 1000,
+      "stock": 28,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "7a91",
+      "categoria": "congelados",
+      "producto": "Milanesas",
+      "marca": "Lucchetti",
+      "peso": 230,
+      "precio": 2000,
+      "stock": 10,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "ee2f",
+      "categoria": "limpieza",
+      "producto": "Limpiador",
+      "marca": "Pato",
+      "peso": 1,
+      "precio": 2500,
+      "stock": 10,
+      "imagen": "",
+      "descripcion": null
     }
   ]
 }

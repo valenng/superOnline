@@ -4,20 +4,73 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: #e1f1fd;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 1000;
   overflow-y: auto;
-
 }
 
+.carrito-header{
+  display: flex;
+  margin: -20px -20px;  
+  background-color: #086dae;
+  padding: 5px 20px;
+  justify-content: flex-start;
+  /* margin-bottom: 10px; */
+  margin-bottom: 0px;
+}
+
+.carrito-header h1{
+  padding-left: 50px;
+  letter-spacing: 1.5px;
+}
+
+.carrito-header a{
+  align-self: center;
+  text-decoration: none;
+  font-size: 35px;
+  color: black;
+}
+
+.carrito-vacio{
+  margin-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.carrito-contenido{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  border-bottom: 1px solid #888282;
+}
+
+.articulo{
+  font-weight: normal;
+  font-size: 25px;
+  align-self: center;
+  margin-inline-end: auto;
+  margin-left: 60px;
+}
+
+.articulo-info{
+  display: flex;
+  margin-right: 100px ;
+}
+
+.articulo-info h2{
+  font-weight: normal;
+  font-size: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+  
 .carrito-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: 1px solid #ddd;
-  padding: 15px 0;
-  margin-bottom: 10px;
+  padding: 20px 0;
 }
 
 .carrito-imagen img {
@@ -29,38 +82,56 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.info{
+  display: flex;
+  flex-direction: column;
+}
 .carrito-info {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  margin-right: 15px;
+  flex-direction:row;
+  justify-content: space-between;
 }
 
 .carrito-nombre {
   font-weight: bold;
+  text-transform: uppercase;
   margin: 0;
   color: #333;
+  font-size: 20px;
 }
 
-.carrito-precio-unitario {
-  color: #555;
-  margin: 5px 0 0;
+.carrito-prod-descripcion{
+  margin-top: 5px;
+  text-transform: uppercase;
   font-size: 14px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.carrito-precio-unitario{
+  color: green;
+  margin: 5px 0 0;
+  font-size: 20px;
+  /* margin-top: 15px; */
+  margin-right: 65px;
 }
 
 .carrito-precio-total {
-  color: #28a745;
+  color: green;
   margin: 5px 0 0;
-  font-size: 14px;
+  font-size: 20px;
+  /* margin-right: 25px; */
+  margin-left: 60px;
+  margin-right: -20px;
 }
 
 .carrito-cantidad {
   display: flex;
   align-items: center;
+  margin-right: 170px;
 }
 
-.carrito-cantidad button {
-  background-color: #007bff;
+.carrito-cantidad button { /*Son todos los botones: - / + */
   color: white;
   border: none;
   padding: 5px;
@@ -73,7 +144,21 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.carrito-cantidad span {
+.carrito-cantidad-btn{
+  margin-left: 25px;
+  margin-right: 40px;
+}
+
+
+.carrito-cantidad-btn button{
+  background-color: #007bff;
+}
+
+.carrito-cantidad-btn button:hover{
+  background-color: #0a54a3;
+}
+
+.carrito-cantidad-btn span {
   font-size: 16px;
   margin: 0 5px;
   width: 20px;
@@ -82,38 +167,158 @@
 
 .carrito-total {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
   color: #333;
   margin-top: 20px;
+  margin-right: 30px;
   text-align: right;
 }
 
 .vaciar-carrito-btn {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: block;
-  margin: 10px auto;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: end;
+  margin-top: -10px;
+  margin-right: 30px;
 }
 
+.vaciar-carrito-btn button{
+  background-color: red;
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  box-shadow: 0px 4px 8px rgb(255 3 3 / 50%);
+}
+
+.vaciar-carrito-btn button:hover{
+  background-color: rgb(126, 7, 7);
+}
 
 .eliminar-producto-btn {
-  background-color: #c0392b;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 5px;
-  cursor: pointer;
-  margin-right: 10px;
+  display: flex;
+  /* align-items: center; */
+  margin-right: 15px;
 }
 
-.eliminar-producto-btn:hover {
-  background-color: #c0392b;
+.eliminar-producto-btn button{
+  background-color: #ff1900;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+}
+
+.eliminar-producto-btn button:hover {
+  background-color: #c71501;
+}
+
+.carrito-pagar{
+  display: flex;
+  justify-content: center;
+}
+
+.carrito-pagar button{
+  background-color: #28a745;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 10px;
+  border-style: none;
+  width: 170px;
+  box-shadow: 0px 4px 8px rgb(42 116 0);
+  
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: monospace;
+  cursor:pointer
+}
+
+.carrito-pagar button:hover{
+  background-color: #11501f;
+}
+
+.formulario{
+  display: flex;
+  justify-content: center;
+}
+
+.formulario-tarjeta{
+  background-color: #f0f8ff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #999999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  border-radius: 50px;
+  width: 600px;
+  padding: 35px 10px;
+  align-items: center;
+}
+
+.formulario-tarjeta h3{
+  align-self: center;
+  text-transform: uppercase;
+  font-family: math;
+  letter-spacing: 2px;
+  margin-top: -15px;
+  text-decoration: underline
+}
+
+.info-tarjeta{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formulario-tarjeta label{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 3.5px;
+}
+
+.formulario-tarjeta input{
+  height: 30px;
+  width: 270px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.info-tarjeta-submit{
+  display: flex;
+  justify-content: center;
+}
+
+.info-tarjeta-submit button{
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border-style: groove;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.info-tarjeta-submit button:hover{
+  background-color: #11501f;
+}
+
+.info-tarjeta-submit button:disabled{
+  background-color: #cccccc; 
+  cursor: not-allowed; 
+}
+
+.form-error{
+  color: red;
+  font-size: 16px;
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
 }

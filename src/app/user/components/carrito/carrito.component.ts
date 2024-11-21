@@ -1,19 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SuperService } from '../../../service/super.service';
 import { Productos } from '../../../types/productos';
+import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-carrito',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
     templateUrl: './carrito.component.html',
     styleUrl: './carrito.component.css',
 })
 export class CarritoComponent implements OnInit {
     items: Productos[] = []; // Almacena los productos del carrito
+    mostrarFormulario: boolean = false;
 
-    constructor(private servicio: SuperService) {}
+    datosTarjeta = {
+        nombre: '',
+        numero: '',
+        fecha: '',
+        cvv: ''
+    };
+
+    constructor(private servicio: SuperService, private route: Router) {}
 
     ngOnInit(): void {
         this.servicio.getCarrito().subscribe((productos: Productos[]) => {
@@ -28,7 +38,13 @@ export class CarritoComponent implements OnInit {
 
     incrementarCantidad(item: Productos): void {
         item.cantidad! += 1;
-        this.servicio.actualizarCarrito(this.items);
+        if(item.cantidad! <= item.stock!){
+            this.servicio.actualizarCarrito(this.items);
+        }else{
+            item.cantidad! -= 1;
+            alert('No hay suficiente stock.');
+        }
+        
     }
 
     decrementarCantidad(item: Productos): void {
@@ -46,4 +62,38 @@ export class CarritoComponent implements OnInit {
     vaciarCarrito(): void{
         this.servicio.vaciarCarrito();
     }
+
+
+    private fb = inject(FormBuilder);
+
+    form = this.fb.group({
+        nombre: [0, [Validators.required, Validators.maxLength(30)]],
+        numero: [0, [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
+        fecha: [0, [Validators.required]],
+        cvv: [0, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
+    });
+
+
+    procesarPago(): void {
+        // Procesa el pago
+        console.log('Datos de la tarjeta:', this.datosTarjeta);
+        alert('Pago procesado exitosamente');
+      
+        // Actualiza el stock de los productos
+        this.servicio.actualizarStock(this.items).subscribe({
+          next: () => {
+            console.log('Stock actualizado correctamente');
+            // Vacía el carrito después de actualizar el stock
+            this.vaciarCarrito();
+            // Oculta el formulario
+            this.mostrarFormulario = false;
+            this.route.navigate(['/user']);
+          },
+          error: (err) => {
+            console.error('Error al actualizar el stock:', err);
+            alert('Hubo un problema al actualizar el stock.');
+          },
+        });
+    }
+
 }

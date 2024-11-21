@@ -20,10 +20,9 @@ const routes: Routes = [
       { path: 'lacteos-y-frescos', component: ListProductosComponent },
       { path: 'verduleria', component: ListProductosComponent },
       { path: 'almacen', component: ListProductosComponent },
-      
-      { path: 'detalles/:id', component: DetailsProductosComponent },
     ]
   },
+  { path: 'detalles/:id', component: DetailsProductosComponent },
   {
     path: '**',
     redirectTo: '',

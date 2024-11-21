@@ -1,0 +1,144 @@
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    justify-content: flex-start;
+    margin-left: 50px;
+    gap: 10px 20px;
+    padding-top: 240px;
+    margin-top: -25px;
+}
+
+.visual-producto{
+    background-color: #bce3fb;
+    display: flex;
+    border: 1px solid #999999;
+    box-shadow: 15px 15px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px 40px;
+}
+
+.material-icons{
+    padding: 100px 100px;
+    font-size: 120px;
+    color: #282828;
+}
+
+.info-producto{
+    display: flex;
+    flex-direction: column;
+    padding: 45px 6px 4px 55px;
+}
+
+.info-producto h1{
+    font-weight: normal;
+    font-family: math;
+    text-transform: uppercase;
+    margin-top: -10px;
+    border-bottom: 1px solid #888282;
+    padding: 0px 40px 0px 15px;
+}
+
+.producto-stock{
+    margin-top: -15px;
+}
+
+.producto-stock span{
+    padding-left: 30px;
+    font-size: 21px;
+    font-family: system-ui;
+    letter-spacing: 2px;
+}
+
+.producto-peso{
+    text-align: center;
+    margin-top: 50px;
+    font-family: MONOSPACE;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+.producto-precio{
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.precio{
+    font-size: 50px;
+    color: green;
+    font-family: fantasy;
+    letter-spacing: 3px;
+    text-align: center;
+    padding-left: 30px;
+}
+
+.prec-text{
+    padding: 50px 10px;
+}
+
+.producto-descripcion{
+    margin-top: -20px;
+    font-weight: normal;
+}
+
+
+/* -------------------------------------- */
+
+.carrito{
+    display: flex;
+    flex-direction: column;
+    padding: 130px 50px;
+}
+
+
+.cantidad-seleccion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.cantidad-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 14px;
+}
+
+.cantidad-btn:hover{
+    background-color: #18395c;
+}
+
+.cantidad-input {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+    /* -moz-appearance: textfield; */
+    appearance: textfield; /*Puse esto para ocultar las flechas dentro del form para incremendar o decrementar la cant*/
+    font-size: 20px;
+}
+
+.cantidad-input::-webkit-outer-spin-button,
+.cantidad-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Oculta las flechas en Chrome, Safari y Edge */
+    margin: 0;
+}
+
+.agregar-carrito-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.agregar-carrito-btn:hover{
+  background-color: #175726;
+}

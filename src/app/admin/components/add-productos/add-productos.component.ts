@@ -97,7 +97,7 @@ export class AddProductosComponent {
     precio: [null, [Validators.required, Validators.min(0)]], 
     stock: [null, [Validators.required, Validators.min(0)]],
     imagen: [''], 
-    descripcion: ['', [Validators.maxLength(200)]],
+    descripcion: [null, [Validators.maxLength(200)]],
   })
 
   //Reinicia los productos y marcas si se modifica la categoría
@@ -132,7 +132,7 @@ export class AddProductosComponent {
     this.superService.addProducto(producto).subscribe({
       next:() => {
         alert('Producto agregado correctamente.');
-        this.route.navigate(['/']) ;
+        this.route.navigate(['/admin']) ;
       },
       error: (error) => {
         console.error(error) ; 

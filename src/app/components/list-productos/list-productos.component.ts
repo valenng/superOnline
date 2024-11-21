@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListProductosComponent implements OnInit{
   
-  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){}
+  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){
+    this.verificarRutaProdCat();
+  }
 
   productos: Productos[] = [];
 
@@ -37,7 +39,12 @@ export class ListProductosComponent implements OnInit{
   }
 
   incrementarCantidad(item: Productos){
-    item.cantidad!++;
+      if(item.cantidad! <= item.stock!){
+        item.cantidad! += 1;
+      }else{
+        item.cantidad = 1;
+        alert('No hay suficiente stock.');
+      }
   }
 
   decrementarCantidad(item: Productos){
@@ -46,8 +53,18 @@ export class ListProductosComponent implements OnInit{
     }
   }
 
+  verificarCantidad(item: Productos): void {
+    if(item.cantidad! <= item.stock! && item.cantidad! > 0){
+      item.cantidad;
+    }else{
+      item.cantidad = 1;
+      alert('Debe elegir un stock válido.');
+    }
+}
+
   agregarAlCarrito(item: Productos, cantidad: number){
     this.servicio.agregarAlCarrito(item, cantidad);
+    alert('Producto agregado al carrito');
   }
 
   // LO ELIMINA DEL JSON (o del sistema digamos), NO del carrito
@@ -68,5 +85,12 @@ export class ListProductosComponent implements OnInit{
     });
   }
 
+  isProdCatRoute: boolean = false; 
 
+  verificarRutaProdCat(): void {
+    this.router.events.subscribe(() => {
+      this.isProdCatRoute = this.router.url.startsWith('/user/productos/');
+    });
+  }
+  
 }

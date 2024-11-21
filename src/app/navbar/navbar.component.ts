@@ -29,6 +29,8 @@ export class NavbarComponent implements OnInit{
     });
     this.verificarRutaAddProductos(); 
     this.verificarRutaUser();
+    this.verificarRutaProdCat();
+    this.verificarRutaProdDet();
   }
 
   barraCarrito(){
@@ -47,6 +49,20 @@ export class NavbarComponent implements OnInit{
     this.isUserRoute = this.router.url === '/user';
     this.router.events.subscribe(() => {
       this.isUserRoute = this.router.url === '/user';
+    });
+  }
+
+  isProdCatRoute: boolean = false; 
+  verificarRutaProdCat(): void {
+    this.router.events.subscribe(() => {
+      this.isProdCatRoute = this.router.url.startsWith('/user/productos/');
+    });
+  }
+
+  isProdDetRoute: boolean = false; 
+  verificarRutaProdDet(): void {
+    this.router.events.subscribe(() => {
+      this.isProdDetRoute = this.router.url.startsWith('/user/detalles/');
     });
   }
 }

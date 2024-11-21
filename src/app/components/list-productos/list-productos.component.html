@@ -5,24 +5,29 @@
           <img [src]="item.imagen" alt="{{ item.producto }}" />
       </div> -->
 
-        <div class="product-titulo">
-          <h3>{{ item.producto }} <br> {{ item.marca }}</h3>
-        </div>
+      <div class="product-titulo" *ngIf="isUserRoute || isProdCatRoute">
+        <h3 [routerLink]="['/user/detalles', item.id]">{{ item.producto }} <br> {{ item.marca }}</h3>
+        <!-- <h3>{{ item.producto }} <br> {{ item.marca }}</h3> -->
+      </div>
+      <div class="product-titulo2" *ngIf="!isUserRoute && !isProdCatRoute">
+        <h3>{{ item.producto }} <br> {{ item.marca }}</h3>
+        <!-- <h3>{{ item.producto }} <br> {{ item.marca }}</h3> -->
+      </div>
           
-        <div class="product-description">
-          <!-- {{item.peso}} <br> -->
-          {{ item.descripcion }}
-        </div>
+      <div class="product-description">
+        <!-- {{item.peso}} <br> -->
+        {{ item.descripcion }}
+      </div>
 
-        <div class="product-price">
-          <span class="new-price">{{ item.precio | currency }}</span>
-        </div>
+      <div class="product-price">
+        <span class="new-price">{{ item.precio | currency }}</span>
+      </div>
 
-          <div class ="acciones" *ngIf="isUserRoute"> <!--Mostrar únicamente si está en la ruta user-->
+          <div class ="acciones" *ngIf="isUserRoute || isProdCatRoute"> <!--Mostrar únicamente si está en la ruta user-->
             <!-- Selector de cantidad -->
             <div class="cantidad-seleccion" >
                 <button (click)="decrementarCantidad(item)" class="cantidad-btn">-</button>
-                <input type="number" [(ngModel)]="item.cantidad" min="1" class="cantidad-input">
+                <input type="number" [(ngModel)]="item.cantidad" min="1" (change)="verificarCantidad(item)" class="cantidad-input">
                 <button (click)="incrementarCantidad(item)" class="cantidad-btn">+</button>
             </div>
 
@@ -31,7 +36,7 @@
           </div> <!-- Fin div=acciones -->
 
           
-          <div class="acciones-admin" *ngIf="!isUserRoute">
+          <div class="acciones-admin" *ngIf="!isUserRoute && !isProdCatRoute">
             <a [routerLink]="['/admin/update-productos', item.id]">Editar</a>
             <button (click)="eliminarProducto(item.id)">Eliminar</button>
           </div>

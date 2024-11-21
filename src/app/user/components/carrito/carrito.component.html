@@ -1,34 +1,140 @@
 <div class="carrito-pagina">
-  <h2>Mi Carrito de Compras</h2>
-  <div *ngIf="items.length > 0; else carritoVacio">
+  
+  <div class="carrito-header">
+    <a [routerLink]="['/user']">←</a>
+    <h1>Carrito de compras</h1>
+  </div>
+  
+  <div class="carrito-contenido">
+    <h1 class="articulo">Artículo</h1>
+    <div class="articulo-info">
+      <h2>Precio</h2>
+      <h2>Cantidad</h2>
+      <h2>Subtotal</h2>
+    </div>
+  </div>
+
+  <div *ngIf="items.length > 0">
     <div *ngFor="let item of items" class="carrito-item">
+
       <!-- Imagen del producto -->
-      <div class="carrito-imagen">
+      <!-- <div class="carrito-imagen">
         <img [src]="item.imagen" alt="{{ item.producto }}" />
+      </div> -->
+
+      <div class="eliminar-producto-btn">
+        <button (click)="eliminarProducto(item.id!)">🗑️</button>
       </div>
 
       <!-- Información del producto -->
       <div class="carrito-info">
-        <p class="carrito-nombre">{{ item.producto }}</p>
-        <p class="carrito-precio-total">Precio unitario: {{ item.precio | currency }}</p>
+        <div class="info">
+          <span class="carrito-nombre">{{ item.producto }} - {{item.marca}}</span>
+          <span class="carrito-prod-descripcion">{{item.descripcion}}</span>
+        </div>
+
+        <!-- Modificación de cantidad -->
+      <div class="carrito-cantidad">
+        <span class="carrito-precio-unitario">{{ item.precio | currency }}</span>
+        <div class="carrito-cantidad-btn">
+           <button (click)="decrementarCantidad(item)">-</button>
+            <span>{{ item.cantidad }}</span>
+            <button (click)="incrementarCantidad(item)">+</button>
+        </div>
+        
+        <span class="carrito-precio-total">{{ (item.precio! * item.cantidad!) | currency }}</span>
+      </div>
       </div>
 
-      <!-- Modificación de cantidad -->
-      <div class="carrito-cantidad">
-        <button (click)="eliminarProducto(item.id!)" class="eliminar-producto-btn">🗑️</button>
-        <button (click)="decrementarCantidad(item)">-</button>
-        <span>{{ item.cantidad }}</span>
-        <button (click)="incrementarCantidad(item)">+</button>
-        <p class="carrito-precio-total">Total: {{ (item.precio! * item.cantidad!) | currency }}</p>
-      </div>
+
+      
     </div>
 
     <!-- Total y botón para vaciar el carrito -->
     <p class="carrito-total">Total: {{ getTotal() | currency }}</p>
-    <button (click)="vaciarCarrito()" class="vaciar-carrito-btn">Vaciar Carrito</button>
+    <div class="vaciar-carrito-btn">
+      <button (click)="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+    
+    <div class="carrito-pagar">
+      <button (click)="mostrarFormulario = true">Pagar</button>
+    </div>
+
   </div>
-  <ng-template #carritoVacio>
+
+  <div class="carrito-vacio" *ngIf="items.length == 0"> 
+    <span>No hay productos en el carrito.</span>
+  </div>
+
+  <div class="formulario">
+    <div *ngIf="mostrarFormulario && items.length != 0" class="formulario-tarjeta" >
+      <h3>Datos de la Tarjeta</h3>
+      
+      <form [formGroup]="form" (ngSubmit)="procesarPago()">
+        <div class="info-tarjeta">
+          <label for="nombre">Nombre en la Tarjeta</label>
+          <input id="nombre" type="text" [(ngModel)]="datosTarjeta.nombre" formControlName="nombre"/>
+
+          <div class="form-error"> 
+            @if(form.controls['nombre'].getError('maxlength')){
+              <span>Alcanzo el máximo de carácteres</span>
+            }
+            @if(form.controls['nombre'].getError('required') && form.controls['nombre'].touched){
+              <span>Ingrese un nombre</span>
+            }
+          </div>
+        </div>
+
+        <div class="info-tarjeta">
+          <label for="numero">Número de Tarjeta</label>
+          <input id="numero" type="text" [(ngModel)]="datosTarjeta.numero" formControlName="numero" />
+
+          <div class="form-error"> 
+            @if(form.controls['numero'].getError('minlength') || form.controls['numero'].getError('maxlength')){
+              <span>Ingrese un número válido</span>
+            }
+            @if(form.controls['numero'].getError('required') && form.controls['numero'].touched){
+              <span>Ingrese el número de tarjeta</span>
+            }
+          </div>
+        </div>
+
+        <div class="info-tarjeta">
+          <label for="fecha">Fecha de Vencimiento</label>
+          <input id="fecha" type="month" [(ngModel)]="datosTarjeta.fecha" formControlName="fecha" />
+
+          <div class="form-error"> 
+            @if(form.controls['fecha'].getError('required') && form.controls['fecha'].touched){
+              <span>Ingrese la fecha de vencimiento</span>
+            }
+          </div>
+        </div>
+
+        <div class="info-tarjeta">
+          <label for="cvv">CVV</label>
+          <input id="cvv" type="password" [(ngModel)]="datosTarjeta.cvv" formControlName="cvv" />
+
+          <div class="form-error"> 
+            @if(form.controls['cvv'].getError('minlength') || form.controls['cvv'].getError('maxlength')){
+              <span>Ingrese un CVV válido</span>
+            }
+            @if(form.controls['cvv'].getError('required') && form.controls['cvv'].touched){
+              <span>Ingrese el código de seguridad</span>
+            }
+          </div>
+        </div>
+
+        <div class="info-tarjeta-submit">
+          <button type="submit" [disabled]="form.invalid">Procesar Pago</button>
+        </div>
+        
+      </form>
+
+    </div>
+
+  </div>
+  <!-- <ng-template #carritoVacio class="carrito-vacio">
     <p>No hay productos en el carrito.</p>
-  </ng-template>
+  </ng-template> -->
 </div>
 

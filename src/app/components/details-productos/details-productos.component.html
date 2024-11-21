@@ -1,1 +1,34 @@
-<p>details-productos works!</p>
+<div class="contenedor">
+
+    <div class="visual-producto">
+        <span class="material-icons">shopping_cart</span>
+    </div>
+
+    <div class="info-producto">
+        <h1>{{producto.producto}} - {{producto.marca}}</h1>
+
+        <div class="producto-stock" *ngIf="producto.stock != 0">
+            <span>En stock</span>
+        </div>
+
+        <h2 class="producto-peso">PESO: {{producto.peso}} gr/litros</h2> <!--Faltaría agregarle para que en peso se especifique qué tipo de unidad tiene, así no genera confusión si es gr o lit-->
+        <div class="producto-precio">
+            <h3 class="precio">${{producto.precio}}</h3>
+            <h3 class="prec-text">x unidad</h3>
+        </div>
+        
+        <h2 class="producto-descripcion" *ngIf="producto.descripcion != null">Información adicional: {{producto.descripcion}}</h2>
+    </div>
+
+    <div class="carrito">
+        <div class="cantidad-seleccion" >
+                <button (click)="decrementarCantidad(producto)" class="cantidad-btn">-</button>
+                <input type="number" [(ngModel)]="producto.cantidad" min="1" class="cantidad-input">
+                <button (click)="incrementarCantidad(producto)" class="cantidad-btn">+</button>
+            </div>
+
+            <!-- Botón para agregar al carrito -->
+            <button (click)="agregarAlCarrito(producto, producto.cantidad || 1)" class="agregar-carrito-btn">Agregar al Carrito</button>
+    </div>
+
+</div>

@@ -2,7 +2,7 @@
     <header class="header">
         <input type="checkbox" class="header-checkbox" id="open-menu">
         
-        <label for="open-menu" class="header-open_nav_button" role="button" *ngIf="isUserRoute">
+        <label for="open-menu" class="header-open_nav_button" role="button" *ngIf="isUserRoute || isProdCatRoute || isProdDetRoute">
             <a [routerLink]="['/user/carrito']">
             <span class="material-icons">shopping_cart</span>
             </a>
@@ -58,6 +58,11 @@
         </div> <!--fin div=categorias-list-->
     </div> <!--fin div=categorias-contenedor-->
 
+    <div class="return">
+        <h1>ROL</h1>
+        <a [routerLink]="[' ']">←</a>
+    </div>
+    
     <app-home-admin *ngIf="rolActual?.toLowerCase() === 'admin'"></app-home-admin>
     
     <!-- <app-add-productos *ngIf="this.isAddProductosRoute"></app-add-productos> -->

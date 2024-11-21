@@ -40,6 +40,7 @@ export class DetailsProductosComponent implements OnInit{
     this.superService.getProductoPorId(id).subscribe({
       next: (data) => {
         this.producto = data;
+        this.producto.cantidad = 1;
       },
       error: (error) => {
         console.error(error) ;
@@ -60,6 +61,7 @@ export class DetailsProductosComponent implements OnInit{
 
   agregarAlCarrito(producto: Productos, cantidad: number){
     this.superService.agregarAlCarrito(producto, cantidad);
+    alert('Producto agregado al carrito');
   }
 
 }

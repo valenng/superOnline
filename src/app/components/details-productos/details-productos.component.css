@@ -120,6 +120,7 @@
     text-align: center;
     /* -moz-appearance: textfield; */
     appearance: textfield; /*Puse esto para ocultar las flechas dentro del form para incremendar o decrementar la cant*/
+    font-size: 20px;
 }
 
 .cantidad-input::-webkit-outer-spin-button,

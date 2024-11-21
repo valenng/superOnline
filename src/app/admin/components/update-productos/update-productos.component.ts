@@ -78,6 +78,7 @@ export class UpdateProductosComponent implements OnInit{
     this.superService.updateProducto(producto, this.id).subscribe({
       next: () => {
         console.log('Actualizado');
+        alert('Actualización exitosa');
       },
       error: () => {
         console.log('Error');

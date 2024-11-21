@@ -38,7 +38,13 @@ export class CarritoComponent implements OnInit {
 
     incrementarCantidad(item: Productos): void {
         item.cantidad! += 1;
-        this.servicio.actualizarCarrito(this.items);
+        if(item.cantidad! <= item.stock!){
+            this.servicio.actualizarCarrito(this.items);
+        }else{
+            item.cantidad! -= 1;
+            alert('No hay suficiente stock.');
+        }
+        
     }
 
     decrementarCantidad(item: Productos): void {

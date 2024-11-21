@@ -1,27 +1,43 @@
-# SuperOnline
+# Proyecto Final: SuperOnline
+Integrantes: Martin de Achaval, Valentina Guerrieri. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+    "superOnline" es una app web que permite tanto a usuarios como administradores realizar distintas tareas dentro del supermercado. Se diseñó para que el usuario disfrute de una experiencia intuitiva de navegación, selección y compra de productos y en forma simultánea, los administradores puedan hacer una gestión apropiada de su stock.
 
-## Development server
+# Funcionalidades principales del sistema en general
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    - Gestión de productos: Creación, edición, eliminación y visualización de productos.
 
-## Code scaffolding
+    - Filtrado por categorías: Navegación por categorías específicas para poder encontrar de forma más sencilla los productos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    - Lista general de productos: Visualización sin filtros desde la página principal.
 
-## Build
+    - Realización de una compra: Selección de un producto y una cantidad específica para poder agregar al carrito.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    - Finalización de una compra: Carga de datos personales para poder realizar el pago de dicha compra con validación de los datos. 
 
-## Running unit tests
+    - Roles de usuario y administrador: Gestión de accesos y funcionalidades específicas según el rol. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Herramientas utilizadas
 
-## Running end-to-end tests
+    - Framework: Angular
+    - Base de datos: json-server
+    - IDE: Visual Studio Code
+    - Lenguajes: TypeScript, HTML, CSS
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Instrucciones para levantar y ejecutar el entorno de desarrollo en VS Code
 
-## Further help
+### Instalaciones
+        - Descargar e instalar Node.js y Angular CLI.
+        - Instalar dependencias: npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### GitHub 
+        - Clonación de repositorio: git clone https://github.com/valenng/superOnline.git 
+
+### Ejecución del servidor
+        - Ejecutar el comando: ng serve
+
+### Inicializar base de datos
+        - Para contar con acceso a los productos guardados en el archivo: json-server productos/productos.json
+
+# Próximamente.. 
+        - Filtrado de productos mediante la barra de búsqueda (actualmente NO funcional)

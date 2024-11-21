@@ -27,7 +27,7 @@
             <!-- Selector de cantidad -->
             <div class="cantidad-seleccion" >
                 <button (click)="decrementarCantidad(item)" class="cantidad-btn">-</button>
-                <input type="number" [(ngModel)]="item.cantidad" min="1" class="cantidad-input">
+                <input type="number" [(ngModel)]="item.cantidad" min="1" (change)="verificarCantidad(item)" class="cantidad-input">
                 <button (click)="incrementarCantidad(item)" class="cantidad-btn">+</button>
             </div>
 

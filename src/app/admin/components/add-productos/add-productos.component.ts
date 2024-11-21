@@ -132,7 +132,7 @@ export class AddProductosComponent {
     this.superService.addProducto(producto).subscribe({
       next:() => {
         alert('Producto agregado correctamente.');
-        this.route.navigate(['/']) ;
+        this.route.navigate(['/admin']) ;
       },
       error: (error) => {
         console.error(error) ; 

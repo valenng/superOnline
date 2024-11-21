@@ -70,8 +70,17 @@
     margin: 8px 0;
     color: #333;
     /* padding: 10px 0; */
-
+    cursor: pointer;
   }
+
+  .product-titulo2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 8px 0;
+    color: #333;
+  }
+
+
 .product-description{
   text-transform: uppercase;
   min-height: 20px; /* Ajusta esta altura según tus necesidades */

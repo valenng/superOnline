@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit{
     this.verificarRutaAddProductos(); 
     this.verificarRutaUser();
     this.verificarRutaProdCat();
+    this.verificarRutaProdDet();
   }
 
   barraCarrito(){
@@ -55,6 +56,13 @@ export class NavbarComponent implements OnInit{
   verificarRutaProdCat(): void {
     this.router.events.subscribe(() => {
       this.isProdCatRoute = this.router.url.startsWith('/user/productos/');
+    });
+  }
+
+  isProdDetRoute: boolean = false; 
+  verificarRutaProdDet(): void {
+    this.router.events.subscribe(() => {
+      this.isProdDetRoute = this.router.url.startsWith('/user/detalles/');
     });
   }
 }

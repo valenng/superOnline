@@ -77,4 +77,5 @@ export class ListProductosComponent implements OnInit{
       this.isProdCatRoute = this.router.url.startsWith('/user/productos/');
     });
   }
+  
 }

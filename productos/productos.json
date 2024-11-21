@@ -48,8 +48,7 @@
       "peso": 1.5,
       "precio": 2200,
       "stock": 11,
-      "imagen": "",
-      "descripcion": ""
+      "imagen": ""
     },
     {
       "id": "08af",
@@ -71,7 +70,18 @@
       "precio": 2000,
       "stock": 10,
       "imagen": "",
-      "descripcion": ""
+      "descripcion": null
+    },
+    {
+      "id": "fbe8",
+      "categoria": "congelados",
+      "producto": "Hamburguesa",
+      "marca": "Swift",
+      "peso": 300,
+      "precio": 3000,
+      "stock": 30,
+      "imagen": "",
+      "descripcion": null
     }
   ]
 }

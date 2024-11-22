@@ -41,3 +41,6 @@ Integrantes: Martin de Achaval, Valentina Guerrieri.
 
 # Próximamente.. 
         - Filtrado de productos mediante la barra de búsqueda (actualmente NO funcional)
+        - Registro y login según el rol que se vaya a utilizar
+        - Consumo de API Cloudify para insertar las imágenes correspondientes a cada producto
+        - Mejorar interfaces para ser responsivas en cualquier tipo de dispositivo

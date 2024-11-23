@@ -27,7 +27,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1700,
-      "stock": 15,
+      "stock": 14,
       "descripcion": "avena y cereales"
     },
     {
@@ -47,8 +47,7 @@
       "marca": "Coca Cola",
       "peso": 1.5,
       "precio": 2200,
-      "stock": 5,
-      "imagen": ""
+      "stock": 15
     },
     {
       "id": "08af",
@@ -94,17 +93,6 @@
       "descripcion": "(200 paños)"
     },
     {
-      "id": "5223",
-      "categoria": "verduleria",
-      "producto": "Zanahoria",
-      "marca": "-",
-      "peso": 1,
-      "precio": 1000,
-      "stock": 28,
-      "imagen": "",
-      "descripcion": null
-    },
-    {
       "id": "7a91",
       "categoria": "congelados",
       "producto": "Milanesas",
@@ -123,6 +111,17 @@
       "peso": 1,
       "precio": 2500,
       "stock": 10,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "d5d9",
+      "categoria": "almacen",
+      "producto": "Aceite",
+      "marca": "Natura",
+      "peso": 2,
+      "precio": 4000,
+      "stock": 12,
       "imagen": "",
       "descripcion": null
     }

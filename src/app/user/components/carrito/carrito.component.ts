@@ -4,6 +4,7 @@ import { SuperService } from '../../../service/super.service';
 import { Productos } from '../../../types/productos';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-carrito',
@@ -23,7 +24,7 @@ export class CarritoComponent implements OnInit {
         cvv: ''
     };
 
-    constructor(private servicio: SuperService, private route: Router) {}
+    constructor(private servicio: SuperService, private route: Router, private toastr: ToastrService) {}
 
     ngOnInit(): void {
         this.servicio.getCarrito().subscribe((productos: Productos[]) => {
@@ -42,7 +43,8 @@ export class CarritoComponent implements OnInit {
             this.servicio.actualizarCarrito(this.items);
         }else{
             item.cantidad! -= 1;
-            alert('No hay suficiente stock.');
+            // alert('No hay suficiente stock.');
+            this.toastr.error('No hay suficiente stock..', 'Producto') ; 
         }
         
     }
@@ -57,10 +59,12 @@ export class CarritoComponent implements OnInit {
     eliminarProducto(productoId: string): void {
         // Llama al método del servicio para eliminar un producto del carrito
         this.servicio.borrarProducto(productoId);
+        this.toastr.warning('Producto eliminado con éxito..', 'Carrito') ; 
     }
 
     vaciarCarrito(): void{
         this.servicio.vaciarCarrito();
+        this.toastr.warning('Se vació el carrito correctamente..', 'Carrito')
     }
 
 
@@ -77,7 +81,8 @@ export class CarritoComponent implements OnInit {
     procesarPago(): void {
         // Procesa el pago
         console.log('Datos de la tarjeta:', this.datosTarjeta);
-        alert('Pago procesado exitosamente');
+        // alert('Pago procesado exitosamente');
+        this.toastr.success('Pago procesado con éxito..', 'Pagos') ;
       
         // Actualiza el stock de los productos
         this.servicio.actualizarStock(this.items).subscribe({
@@ -91,7 +96,8 @@ export class CarritoComponent implements OnInit {
           },
           error: (err) => {
             console.error('Error al actualizar el stock:', err);
-            alert('Hubo un problema al actualizar el stock.');
+            // alert('Hubo un problema al actualizar el stock.');
+            this.toastr.error('Hubo un problema al actualizar el stock..', 'Ups!') ; 
           },
         });
     }

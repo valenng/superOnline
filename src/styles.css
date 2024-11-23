@@ -2,3 +2,7 @@
 body{
     background-color: #e1f1fd;
 }
+
+.toast-top-center {
+    margin-top: 20px; 
+  }

@@ -3,6 +3,7 @@ import { SuperService } from '../../../service/super.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Productos } from '../../../types/productos';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-productos',
@@ -17,7 +18,7 @@ export class UpdateProductosComponent implements OnInit{
 
   activatedRoute = inject(ActivatedRoute);
 
-  constructor(private superService: SuperService, private route: Router){}
+  constructor(private superService: SuperService, private route: Router, private toastr: ToastrService){}
 
   form = this.fb.group({
     id: [{ value: '', disabled: true }],
@@ -78,7 +79,8 @@ export class UpdateProductosComponent implements OnInit{
     this.superService.updateProducto(producto, this.id).subscribe({
       next: () => {
         console.log('Actualizado');
-        alert('Actualización exitosa');
+        // alert('Actualización exitosa');
+        this.toastr.success('Actualización exitosa', 'Producto'); 
       },
       error: () => {
         console.log('Error');

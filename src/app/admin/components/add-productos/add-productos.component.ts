@@ -6,6 +6,7 @@ import { Productos } from '../../../types/productos';
 import { error } from 'console';
 import { CategoriasObject } from '../../../types/categorias-object';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-productos',
@@ -87,7 +88,7 @@ export class AddProductosComponent {
   productos: string[] = [];
   marcas: string[] = [];
 
-  constructor(private superService: SuperService, private route: Router){}
+  constructor(private superService: SuperService, private route: Router, private toastr: ToastrService){}
 
   form = this.fb.group({
     categoria: ['', [Validators.required]],
@@ -131,7 +132,8 @@ export class AddProductosComponent {
     const producto = this.form.getRawValue() as Productos;
     this.superService.addProducto(producto).subscribe({
       next:() => {
-        alert('Producto agregado correctamente.');
+        // alert('Producto agregado correctamente.');
+        this.toastr.success('Producto agregado correctamente..', 'Producto');
         this.route.navigate(['/admin']) ;
       },
       error: (error) => {

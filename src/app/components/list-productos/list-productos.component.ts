@@ -4,6 +4,7 @@ import { SuperService } from '../../service/super.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-productos',
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListProductosComponent implements OnInit{
   
-  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router){
+  constructor(private servicio: SuperService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService){
     this.verificarRutaProdCat();
   }
 
@@ -43,7 +44,8 @@ export class ListProductosComponent implements OnInit{
         item.cantidad! += 1;
       }else{
         item.cantidad = 1;
-        alert('No hay suficiente stock.');
+        // alert('No hay suficiente stock.');
+        this.toastr.error('No hay suficiente stock..', 'Producto') ; 
       }
   }
 
@@ -53,24 +55,32 @@ export class ListProductosComponent implements OnInit{
     }
   }
 
-  verificarCantidad(item: Productos): void {
-    if(item.cantidad! <= item.stock! && item.cantidad! > 0){
-      item.cantidad;
+  verificarCantidad(item: Productos): boolean {
+    if(item.cantidad! > 0 && item.cantidad! <= item.stock!){
+      return true;
     }else{
-      item.cantidad = 1;
-      alert('Debe elegir un stock válido.');
+      // alert('Debe seleccionar un stock válido.');
+      this.toastr.error('Debe seleccionar un stock válido..', 'Producto') ; 
+      return false;
     }
 }
 
   agregarAlCarrito(item: Productos, cantidad: number){
-    this.servicio.agregarAlCarrito(item, cantidad);
-    alert('Producto agregado al carrito');
+    console.log(cantidad);
+    if(this.verificarCantidad(item)){
+      this.servicio.agregarAlCarrito(item, cantidad);
+      // alert('Producto agregado al carrito');
+      this.toastr.success('Producto agregado con éxito..', 'Carrito');
+    }else{
+      item.cantidad! = 1;
+    }
   }
 
   // LO ELIMINA DEL JSON (o del sistema digamos), NO del carrito
   eliminarProducto(id?: string): void {
     this.servicio.deleteProducto(id!).subscribe(() => {
-    this.productos = this.productos.filter(p => p.id !== id);
+      this.productos = this.productos.filter(p => p.id !== id);
+      this.toastr.warning('Producto eliminado de la base de datos..', 'Producto');
     })
   }
 

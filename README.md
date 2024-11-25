@@ -39,8 +39,11 @@ Integrantes: Martin de Achaval, Valentina Guerrieri.
 ### Inicializar base de datos
         - Para contar con acceso a los productos guardados en el archivo: json-server productos/productos.json
 
-# Próximamente.. 
+# Próximamente..
         - Filtrado de productos mediante la barra de búsqueda (actualmente NO funcional)
         - Registro y login según el rol que se vaya a utilizar
         - Consumo de API Cloudify para insertar las imágenes correspondientes a cada producto
         - Mejorar interfaces para ser responsivas en cualquier tipo de dispositivo
+        - Generador de estadísticas de venta
+        - Historial de compra
+        - Generador de informes y/o recibos 

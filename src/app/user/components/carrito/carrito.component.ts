@@ -71,16 +71,24 @@ export class CarritoComponent implements OnInit {
     private fb = inject(FormBuilder);
 
     form = this.fb.group({
-        nombre: [0, [Validators.required, Validators.maxLength(30)]],
-        numero: [0, [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
-        fecha: [0, [Validators.required]],
-        cvv: [0, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
+        nombre: ['', [Validators.required, Validators.maxLength(30)]],
+        numero: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{4}-\d{4}-\d{4}$/)]],
+        fecha: ['', [Validators.required]],
+        cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
     });
 
+    formatCardNumber(event: Event): void {
+        const input = event.target as HTMLInputElement;
+        let value = input.value.replace(/[^0-9]/g, ''); 
+      
+        // Insertar guiones cada 4 caracteres
+        value = value.match(/.{1,4}/g)?.join('-') || '';
+        this.form.get('numero')?.setValue(value);
+    }
 
     procesarPago(): void {
         // Procesa el pago
-        console.log('Datos de la tarjeta:', this.datosTarjeta);
+        console.log('Datos de la tarjeta:', this.form);
         // alert('Pago procesado exitosamente');
         this.toastr.success('Pago procesado con éxito..', 'Pagos') ;
       

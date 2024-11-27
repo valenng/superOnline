@@ -73,7 +73,7 @@
       <form [formGroup]="form" (ngSubmit)="procesarPago()">
         <div class="info-tarjeta">
           <label for="nombre">Nombre en la Tarjeta</label>
-          <input id="nombre" type="text" [(ngModel)]="datosTarjeta.nombre" formControlName="nombre"/>
+          <input id="nombre" type="text" formControlName="nombre"/>
 
           <div class="form-error"> 
             @if(form.controls['nombre'].getError('maxlength')){
@@ -87,11 +87,11 @@
 
         <div class="info-tarjeta">
           <label for="numero">Número de Tarjeta</label>
-          <input id="numero" type="text" [(ngModel)]="datosTarjeta.numero" formControlName="numero" />
+          <input id="numero" type="text" formControlName="numero" (input)="formatCardNumber($event)"/>
 
           <div class="form-error"> 
-            @if(form.controls['numero'].getError('minlength') || form.controls['numero'].getError('maxlength')){
-              <span>Ingrese un número válido</span>
+            @if(form.controls['numero'].getError('pattern')){
+              <span>Debe contener 16 números</span>
             }
             @if(form.controls['numero'].getError('required') && form.controls['numero'].touched){
               <span>Ingrese el número de tarjeta</span>
@@ -101,7 +101,7 @@
 
         <div class="info-tarjeta">
           <label for="fecha">Fecha de Vencimiento</label>
-          <input id="fecha" type="month" [(ngModel)]="datosTarjeta.fecha" formControlName="fecha" />
+          <input id="fecha" type="month" formControlName="fecha" />
 
           <div class="form-error"> 
             @if(form.controls['fecha'].getError('required') && form.controls['fecha'].touched){
@@ -112,7 +112,7 @@
 
         <div class="info-tarjeta">
           <label for="cvv">CVV</label>
-          <input id="cvv" type="password" [(ngModel)]="datosTarjeta.cvv" formControlName="cvv" />
+          <input id="cvv" type="password" formControlName="cvv" />
 
           <div class="form-error"> 
             @if(form.controls['cvv'].getError('minlength') || form.controls['cvv'].getError('maxlength')){

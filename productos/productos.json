@@ -7,7 +7,7 @@
       "marca": "la virginia",
       "peso": 170,
       "precio": 5200,
-      "stock": 19
+      "stock": 18
     },
     {
       "id": "asad",
@@ -17,8 +17,7 @@
       "peso": 410,
       "precio": 1800,
       "stock": 9,
-      "descripcion": "salvado",
-      "imagen": "assets/images/panificados/panacity-salvado.jpg"
+      "descripcion": "salvado"
     },
     {
       "id": "aerd",
@@ -27,7 +26,7 @@
       "marca": "panacity",
       "peso": 410,
       "precio": 1700,
-      "stock": 14,
+      "stock": 13,
       "descripcion": "avena y cereales"
     },
     {
@@ -37,7 +36,7 @@
       "marca": "panacity",
       "peso": 450,
       "precio": 2000,
-      "stock": 1,
+      "stock": 0,
       "descripcion": "con semillas"
     },
     {
@@ -89,8 +88,7 @@
       "peso": 7,
       "precio": 7,
       "stock": 6,
-      "imagen": "",
-      "descripcion": "(200 paños)"
+      "descripcion": ""
     },
     {
       "id": "7a91",
@@ -121,7 +119,40 @@
       "marca": "Natura",
       "peso": 2,
       "precio": 4000,
-      "stock": 12,
+      "stock": 11,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "e0ce",
+      "categoria": "bebidas-S-A",
+      "producto": "Agua",
+      "marca": "Villavicencio",
+      "peso": 1,
+      "precio": 2100,
+      "stock": 20,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "eb0b",
+      "categoria": "lacteos-y-frescos",
+      "producto": "Leche",
+      "marca": "La Serenisima",
+      "peso": 1,
+      "precio": 1500,
+      "stock": 25,
+      "imagen": "",
+      "descripcion": null
+    },
+    {
+      "id": "8271",
+      "categoria": "lacteos-y-frescos",
+      "producto": "Leche",
+      "marca": "Verónica",
+      "peso": 1,
+      "precio": 1200,
+      "stock": 20,
       "imagen": "",
       "descripcion": null
     }

@@ -4,6 +4,7 @@ import { SuperService } from '../../service/super.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details-productos',
@@ -26,7 +27,7 @@ export class DetailsProductosComponent implements OnInit{
     descripcion: ''
   };
 
-  constructor(private superService: SuperService, private router: Router, private route: ActivatedRoute){}
+  constructor(private superService: SuperService, private router: Router, private route: ActivatedRoute, private toastr: ToastrService){}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') ;
@@ -50,7 +51,12 @@ export class DetailsProductosComponent implements OnInit{
   }
 
   incrementarCantidad(producto: Productos){
-    producto.cantidad!++;
+    if(producto.cantidad! <= producto.stock!){
+      producto.cantidad! += 1;
+    }else{
+      producto.cantidad = 1;
+      this.toastr.error('No hay suficiente stock..', 'Producto') ; 
+    }
   }
 
   decrementarCantidad(producto: Productos){
@@ -59,9 +65,22 @@ export class DetailsProductosComponent implements OnInit{
     }
   }
 
+  verificarCantidad(producto: Productos): boolean {
+    if(producto.cantidad! > 0 && producto.cantidad! <= producto.stock!){
+      return true;
+    }else{
+      this.toastr.error('Debe seleccionar un stock válido..', 'Producto') ; 
+      return false;
+    }
+  }
+
   agregarAlCarrito(producto: Productos, cantidad: number){
-    this.superService.agregarAlCarrito(producto, cantidad);
-    alert('Producto agregado al carrito');
+    if(this.verificarCantidad(producto)){
+      this.superService.agregarAlCarrito(producto, cantidad);
+      this.toastr.success('Producto agregado con éxito..', 'Carrito');
+    }else{
+      producto.cantidad! = 1;
+    }
   }
 
 }

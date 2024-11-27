@@ -81,6 +81,7 @@ export class UpdateProductosComponent implements OnInit{
         console.log('Actualizado');
         // alert('Actualización exitosa');
         this.toastr.success('Actualización exitosa', 'Producto'); 
+        this.route.navigate(['/admin']) ;
       },
       error: () => {
         console.log('Error');
